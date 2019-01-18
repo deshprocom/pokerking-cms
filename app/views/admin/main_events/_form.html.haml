@@ -1,0 +1,14 @@
+= semantic_form_for [:admin, @main_event] do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs do
+    = f.input :name
+    = f.input :logo, as: :attachment, required: true,
+                     hint: '图片最大为 2MB',
+                     image: proc { |o| o.logo_url }
+
+    = f.input :begin_time
+    = f.input :end_time
+    = f.input :published
+  = f.submit data: { disable_with: '请稍等...' }
+
+
