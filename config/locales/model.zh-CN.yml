@@ -3,6 +3,7 @@
     models:
       admin_user: "管理员"
       comment: "管理员备注"
+      main_event: "主赛"
     attributes:
       admin_user:
         email: "邮箱"
@@ -13,6 +14,14 @@
         created_at: "注册时间"
         password: "密码"
         password_confirmation: "确认密码"
+      main_event:
+        name: "主赛名称"
+        logo: "主赛logo"
+        begin_time: "开始时间"
+        end_time: "结束时间"
+        event_state: "赛事状态"
+        published: "是否发布"
+        description: "详情描述"
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'
