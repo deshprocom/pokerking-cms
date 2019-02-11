@@ -1,6 +1,6 @@
 ActiveAdmin.register MainEvent do
 
-  permit_params :name, :logo, :begin_time, :end_time, :published
+  permit_params :name, :logo, :begin_time, :end_time, :published, :description
   form partial: 'form'
 
   index do

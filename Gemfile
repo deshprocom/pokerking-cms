@@ -44,6 +44,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'haml'
+gem 'simditor'
 
 # 文件上传处理 相关
 gem 'carrierwave', '~> 1.0'

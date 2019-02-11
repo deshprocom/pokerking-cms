@@ -234,6 +234,7 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    simditor (2.3.6)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -294,6 +295,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (~> 5.0)
   selenium-webdriver
+  simditor
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
