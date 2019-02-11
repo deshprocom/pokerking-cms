@@ -4,6 +4,7 @@
       admin_user: "管理员"
       comment: "管理员备注"
       main_event: "主赛"
+      event_schedule: "赛程"
     attributes:
       admin_user:
         email: "邮箱"
@@ -22,6 +23,17 @@
         event_state: "赛事状态"
         published: "是否发布"
         description: "详情描述"
+      event_schedule:
+        name: "名称"
+        event_type: "类型"
+        event_num: "编号"
+        buy_in: "买入"
+        starting_stack: "起始筹码"
+        entries: "参数人数"
+        schedule_pdf: "赛程pdf"
+        begin_time: "开始时间"
+        reg_open: "开始登记"
+        reg_close: "结束登记"
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'

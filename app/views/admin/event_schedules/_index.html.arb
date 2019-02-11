@@ -1,0 +1,16 @@
+context.instance_eval do
+  column(:id)
+  column(:name)
+  column(:event_num)
+  column(:event_type)
+  column(:buy_in)
+  column(:starting_stack)
+  column(:entries)
+  column(:begin_time)
+  column(:reg_open)
+  column(:reg_close)
+  column(:schedule_pdf) { |event| link_to 'PDF', event.schedule_pdf_url, target: '_blank' }
+  actions
+end
+
+
