@@ -5,6 +5,7 @@
       comment: "管理员备注"
       main_event: "主赛"
       event_schedule: "赛程"
+      event_info: "赛事新闻"
     attributes:
       admin_user:
         email: "邮箱"
@@ -34,6 +35,13 @@
         begin_time: "开始时间"
         reg_open: "开始登记"
         reg_close: "结束登记"
+      event_info:
+        title: "标题"
+        image: "图片"
+        description: "描述"
+        published: "是否发布"
+        created_at: "创建时间"
+        updated_at: "更新时间"
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'
