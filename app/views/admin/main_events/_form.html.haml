@@ -4,7 +4,7 @@
     = f.input :name
     = f.input :logo, as: :attachment, required: true,
                      hint: '图片最大为 2MB',
-                     image: proc { |o| o.logo_url }
+                     image: proc { |o| o.logo_url.to_s }
 
     = f.input :begin_time
     = f.input :end_time
