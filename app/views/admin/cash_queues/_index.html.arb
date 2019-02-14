@@ -1,0 +1,13 @@
+context.instance_eval do
+  column(:id)
+  column(:cash_game, sortable: false)
+  column(:small_blind)
+  column(:big_blind)
+  column(:table_numbers)
+  column(:members) do |cash_queue|
+    link_to cash_queue.cash_queue_members_count, admin_cash_queue_cash_queue_members_url(cash_queue), style: 'color: blue;'
+  end
+  actions
+end
+
+
