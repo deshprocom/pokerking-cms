@@ -1,0 +1,10 @@
+%div
+  - url = @cash_queue_member.new_record? ? admin_cash_queue_cash_queue_members_path(@cash_queue) : admin_cash_queue_cash_queue_member_path(@cash_queue, @cash_queue_member)
+  = semantic_form_for @cash_queue_member, url: url do |f|
+    = f.semantic_errors *f.object.errors.keys
+    = f.inputs do
+      = f.input :nickname
+    = f.actions
+
+
+

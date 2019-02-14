@@ -11,4 +11,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def cash_queue_sidebar_generator(context)
+    context.instance_eval do
+      ul do
+        li link_to '排队进程', admin_cash_game_cash_queues_path(cash_game)
+      end
+    end
+  end
 end

@@ -1,0 +1,23 @@
+context.instance_eval do
+  div class: 'cash_queue_show' do
+    ul class: 'ui-tabs-nav' do
+      li link_to '新建排队进程', new_admin_cash_game_cash_queue_url(resource.cash_game)
+    end
+  end
+
+  div class: 'tab-content' do
+    attributes_table do
+      row(:cash_game)
+      row(:cash_game) do
+        span link_to '查看排队进程列表', admin_cash_game_cash_queues_url(resource.cash_game)
+      end
+      row(:small_blind)
+      row(:big_blind)
+      row(:table_numbers)
+      row(:cash_queue_members_count)
+      row(:created_at)
+      row(:updated_at)
+    end
+  end
+end
+

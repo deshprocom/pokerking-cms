@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, resource] do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs do
+    = f.input :name
+    = f.input :image, as: :attachment, required: true,
+                     hint: '图片最大为 2MB',
+                     image: proc { |o| o.image_url }
+  = f.submit data: { disable_with: '请稍等...' }

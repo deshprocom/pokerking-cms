@@ -1,0 +1,12 @@
+%div
+  - url = @cash_queue.new_record? ? admin_cash_game_cash_queues_path(@cash_game) : admin_cash_game_cash_queue_path(@cash_game, @cash_queue)
+  = semantic_form_for @cash_queue, url: url do |f|
+    = f.semantic_errors *f.object.errors.keys
+    = f.inputs do
+      = f.input :small_blind
+      = f.input :big_blind
+      = f.input :table_numbers
+    = f.actions
+
+
+

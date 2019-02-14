@@ -1,0 +1,18 @@
+context.instance_eval do
+  div class: 'cash_member_show' do
+    ul class: 'ui-tabs-nav' do
+      li link_to '新建排队人员', new_admin_cash_queue_cash_queue_member_url(resource.cash_queue)
+    end
+  end
+
+  div class: 'tab-content' do
+    attributes_table do
+      row(:cash_queue) do
+        span link_to '查看排队人员列表', admin_cash_queue_cash_queue_members_url(resource.cash_queue)
+      end
+      row(:nickname)
+      row(:created_at)
+    end
+  end
+end
+

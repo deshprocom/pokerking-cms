@@ -5,6 +5,9 @@
       comment: "管理员备注"
       main_event: "主赛"
       event_schedule: "赛程"
+      cash_game: '现金桌'
+      cash_queue: '排队进程'
+      cash_queue_member: '排队人员'
       event_info: "赛事新闻"
     attributes:
       admin_user:
@@ -42,6 +45,21 @@
         published: "是否发布"
         created_at: "创建时间"
         updated_at: "更新时间"
+      cash_game:
+        name: '名称'
+        image: '图片'
+      cash_queue:
+        cash_game: '现金桌'
+        small_blind: '小盲注'
+        big_blind: '大盲注'
+        table_numbers: '桌数'
+        members: '排队人数'
+        created_at: '创建时间'
+        updated_at: '更新时间'
+      cash_queue_member:
+        nickname: '昵称'
+        created_at: '创建时间'
+        updated_at: '更新时间'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'
