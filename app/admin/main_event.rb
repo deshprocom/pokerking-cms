@@ -1,4 +1,5 @@
 ActiveAdmin.register MainEvent do
+  config.sort_order = 'begin_time_asc'
 
   permit_params :name, :logo, :begin_time, :end_time, :published, :description
   form partial: 'form'
