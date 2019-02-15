@@ -10,6 +10,7 @@
       cash_queue_member: '排队人员'
       event_info: "赛事新闻"
       info: "热门资讯"
+      homepage_banner: "首页banner"
     attributes:
       admin_user:
         email: "邮箱"
@@ -69,6 +70,10 @@
         nickname: '昵称'
         created_at: '创建时间'
         updated_at: '更新时间'
+      homepage_banner:
+        source_title: '来源标题'
+        source_type: '来源类型'
+        image: '图片'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'

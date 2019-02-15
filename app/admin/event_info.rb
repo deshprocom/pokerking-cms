@@ -1,5 +1,5 @@
 ActiveAdmin.register EventInfo do
-  belongs_to :main_event
+  belongs_to :main_event, optional: true
   config.sort_order = 'id_desc'
 
 
