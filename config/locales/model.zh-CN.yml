@@ -9,6 +9,7 @@
       cash_queue: '排队进程'
       cash_queue_member: '排队人员'
       event_info: "赛事新闻"
+      info: "热门资讯"
     attributes:
       admin_user:
         email: "邮箱"
@@ -41,6 +42,14 @@
       event_info:
         title: "标题"
         image: "图片"
+        description: "描述"
+        published: "是否发布"
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      info:
+        title: "标题"
+        image: "图片"
+        source: "来源"
         description: "描述"
         published: "是否发布"
         created_at: "创建时间"

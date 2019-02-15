@@ -1,0 +1,11 @@
+context.instance_eval do
+  attributes_table do
+    row(:title)
+    row(:source)
+    row(:image) { |info| image_tag(info.image_url.to_s, height: 300) }
+    row(:published)
+    row(:created_at)
+    row(:updated_at)
+    row(:description) { |info| raw info.description }
+  end
+end
