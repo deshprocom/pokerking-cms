@@ -48,6 +48,7 @@ gem 'simditor'
 
 # 文件上传处理 相关
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-upyun'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 
 group :development, :test do

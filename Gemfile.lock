@@ -101,6 +101,9 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    carrierwave-upyun (0.2.2)
+      carrierwave (>= 0.5.7)
+      faraday (>= 0.8.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.0)
@@ -129,6 +132,8 @@ GEM
       railties (>= 3.2, < 6.0)
     erubi (1.8.0)
     execjs (2.7.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -190,6 +195,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.6)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     mysql2 (0.5.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -313,6 +319,7 @@ DEPENDENCIES
   capistrano3-puma
   capybara (>= 2.15)
   carrierwave (~> 1.0)
+  carrierwave-upyun
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
