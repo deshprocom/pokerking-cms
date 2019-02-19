@@ -27,4 +27,9 @@ module ApplicationHelper
       link_to '取消排队', cancel_admin_cash_queue_cash_queue_member_path(resource.cash_queue, resource), method: :post
     end
   end
+
+  def avatar(src, options = {})
+    html_options = { class: 'img-circle', size: 60 }.merge(options)
+    image_tag(src.presence || 'default_avatar.jpg', html_options)
+  end
 end
