@@ -9,6 +9,8 @@
       cash_queue: '排队进程'
       cash_queue_member: '排队人员'
       event_info: "赛事新闻"
+      info: "热门资讯"
+      homepage_banner: "首页banner"
     attributes:
       admin_user:
         email: "邮箱"
@@ -45,6 +47,14 @@
         published: "是否发布"
         created_at: "创建时间"
         updated_at: "更新时间"
+      info:
+        title: "标题"
+        image: "图片"
+        source: "来源"
+        description: "描述"
+        published: "是否发布"
+        created_at: "创建时间"
+        updated_at: "更新时间"
       cash_game:
         name: '名称'
         image: '图片'
@@ -63,6 +73,10 @@
         canceled: '是否取消'
         created_at: '创建时间'
         updated_at: '更新时间'
+      homepage_banner:
+        source_title: '来源标题'
+        source_type: '来源类型'
+        image: '图片'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'

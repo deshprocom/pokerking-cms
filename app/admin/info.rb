@@ -1,9 +1,7 @@
-ActiveAdmin.register EventInfo do
-  belongs_to :main_event, optional: true
+ActiveAdmin.register Info do
   config.sort_order = 'id_desc'
 
-
-  permit_params :title, :image, :description, :main_event_id, :published, :created_at
+  permit_params :title, :image, :description, :source, :published, :created_at
   form partial: 'form'
 
   index do
