@@ -1,6 +1,6 @@
 ActiveAdmin.register CashQueue do
   belongs_to :cash_game
-  permit_params :small_blind, :big_blind, :table_numbers, :members
+  permit_params :small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no
 
   index do
     render 'index', context: self
