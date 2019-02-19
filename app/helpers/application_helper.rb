@@ -19,4 +19,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def queue_member_cancel_link(resource)
+    if resource.canceled?
+      link_to '重新排队', uncancel_admin_cash_queue_cash_queue_member_path(resource.cash_queue, resource), method: :post
+    else
+      link_to '取消排队', cancel_admin_cash_queue_cash_queue_member_path(resource.cash_queue, resource), method: :post
+    end
+  end
 end

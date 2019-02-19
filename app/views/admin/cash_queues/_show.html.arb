@@ -15,6 +15,8 @@ context.instance_eval do
       row(:big_blind)
       row(:table_numbers)
       row(:cash_queue_members_count)
+      row(:table_no)
+      row(:buy_in)
       row(:created_at)
       row(:updated_at)
     end

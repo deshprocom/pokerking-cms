@@ -1,0 +1,11 @@
+context.instance_eval do
+  column(:id)
+  column(:cash_queue, sortable: false)
+  column(:nickname)
+  column(:created_at)
+  column(:updated_at)
+  column(:canceled, sortable: false) { |resource| queue_member_cancel_link(resource) }
+  actions
+end
+
+

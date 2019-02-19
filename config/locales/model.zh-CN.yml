@@ -53,11 +53,14 @@
         small_blind: '小盲注'
         big_blind: '大盲注'
         table_numbers: '桌数'
-        members: '排队人数'
+        cash_queue_members_count: '排队的人数'
+        table_no: '桌子编号'
+        buy_in: '买入'
         created_at: '创建时间'
         updated_at: '更新时间'
       cash_queue_member:
         nickname: '昵称'
+        canceled: '是否取消'
         created_at: '创建时间'
         updated_at: '更新时间'
     format: "%{attribute}%{message}"
