@@ -11,6 +11,7 @@
       event_info: "赛事新闻"
       info: "热门资讯"
       homepage_banner: "首页banner"
+      user: '用户管理'
     attributes:
       admin_user:
         email: "邮箱"
@@ -77,6 +78,17 @@
         source_title: '来源标题'
         source_type: '来源类型'
         image: '图片'
+      user:
+        nickname: '昵称'
+        email: '电子邮箱'
+        mobile: '手机号码'
+        reg_date: '注册日期'
+        last_visit: '上次访问时间'
+        login_count: '登录次数'
+        login_days: '登录天数'
+        created_at: '创建时间'
+        last_sign_in_ip: '登录IP'
+        avatar: '头像'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'
