@@ -12,6 +12,7 @@
       info: "热门资讯"
       homepage_banner: "首页banner"
       user: '用户管理'
+      platform_question: '常见问题'
     attributes:
       admin_user:
         email: "邮箱"
@@ -89,6 +90,8 @@
         created_at: '创建时间'
         last_sign_in_ip: '登录IP'
         avatar: '头像'
+      platform_question:
+        description: '问题列表'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'
