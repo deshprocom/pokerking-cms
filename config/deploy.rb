@@ -9,7 +9,7 @@ set :rvm_ruby_version, 'ruby-2.5.0'
 set :default_env, { path: '$PATH:/home/deploy/.nvm/v8.5.0/bin' }
 
 append :linked_files, '.env', 'config/master.key'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
