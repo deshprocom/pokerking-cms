@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'dotenv-rails'
+gem 'second_level_cache'
 
 # activeadmin 相关
 gem 'activeadmin'
