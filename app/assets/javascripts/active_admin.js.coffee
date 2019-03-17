@@ -2,3 +2,4 @@
 #= require simditor
 #= require ./editor
 #= require ./homepage
+#= require_tree ./admin
