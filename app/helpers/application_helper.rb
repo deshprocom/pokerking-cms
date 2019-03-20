@@ -7,7 +7,7 @@ module ApplicationHelper
     context.instance_eval do
       ul do
         li link_to '赛程表', admin_main_event_event_schedules_path(main_event)
-        li link_to '赛事新闻', admin_main_event_event_infos_path(main_event)
+        li link_to '赛事新闻', admin_main_event_infos_path(main_event)
       end
     end
   end

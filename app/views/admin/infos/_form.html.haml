@@ -1,12 +1,13 @@
 = semantic_form_for [:admin, @info] do |f|
   = f.semantic_errors *f.object.errors.keys
   = f.inputs do
+    = f.input :main_event
     = f.input :title
     = f.input :source
     = f.input :image, as: :attachment, required: true,
-                     hint: '图片最大为 2MB',
-                     image: proc { |o| o.image_url.to_s }
-
+                      hint: '图片最大为2MB，尺寸比例 244 X 148px',
+                      image: proc { |o| o.image_url.to_s }
+    = f.input :only_show_in_event
     = f.input :published
     = f.input :created_at
     ~ f.input :description

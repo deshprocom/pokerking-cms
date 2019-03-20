@@ -3,7 +3,7 @@
   = f.inputs do
     = f.input :name
     = f.input :logo, as: :attachment, required: true,
-                     hint: '图片最大为 2MB',
+                     hint: '图片最大为2MB， 尺寸比例 576 X 288px',
                      image: proc { |o| o.logo_url.to_s }
 
     = f.input :begin_time

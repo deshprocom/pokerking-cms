@@ -3,13 +3,12 @@
     models:
       admin_user: "管理员"
       comment: "管理员备注"
-      main_event: "主赛"
+      main_event: "赛事"
       event_schedule: "赛程"
       cash_game: '现金桌'
       cash_queue: '排队进程'
       cash_queue_member: '排队人员'
-      event_info: "赛事新闻"
-      info: "热门资讯"
+      info: "资讯"
       homepage_banner: "首页banner"
       user: '用户管理'
       platform_question: '常见问题'
@@ -42,14 +41,9 @@
         begin_time: "开始时间"
         reg_open: "开始登记"
         reg_close: "结束登记"
-      event_info:
-        title: "标题"
-        image: "图片"
-        description: "描述"
-        published: "是否发布"
-        created_at: "创建时间"
-        updated_at: "更新时间"
       info:
+        main_event: "所属赛事"
+        only_show_in_event: "是否只显示在赛事中"
         title: "标题"
         image: "图片"
         source: "来源"

@@ -3,9 +3,9 @@
   = f.inputs do
     = f.input :position
     = f.input :image, as: :attachment, required: true,
-                   hint: '图片最大为 2MB',
+                   hint: '图片最大为 2MB, 尺寸比例 750 X 320px',
                    image: proc { |o| o.image_url.to_s }
-    = f.input :source_type, as: :select, collection: AdminTrans::SOURCE_TYPES, prompt: true,
+    = f.input :source_type, as: :select, collection: AdminTrans::SOURCE_TYPES, include_blank: false,
               input_html: { class: 'trigger_search_form' }
     = f.input :source_id, as: :hidden, input_html: { class: 'source_id' }
     = f.input :source_title, input_html: { disabled: true, class: 'source_title' }
@@ -15,4 +15,5 @@
 :javascript
   $(function() {
     HomepageEvent.bindFormEvents();
+    $('select.trigger_search_form').trigger('change')
   });
