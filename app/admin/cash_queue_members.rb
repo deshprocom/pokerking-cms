@@ -2,8 +2,7 @@ ActiveAdmin.register CashQueueMember do
   belongs_to :cash_queue
   permit_params :nickname, :published
   config.sort_order = 'position_desc'
-
-  form partial: 'form'
+  actions :all, except: [:new]
 
   index do
     render 'index', context: self
@@ -13,21 +12,24 @@ ActiveAdmin.register CashQueueMember do
     render 'show', context: self
   end
 
-  controller do
-    before_action :set_cash_queue
-    before_action :set_cash_queue_member, only: [:edit, :update, :destroy]
+  # 快捷添加用户的操作
+  action_item :add, only: :index do
+    cash_queue = CashQueue.find(params[:cash_queue_id])
+    link_to '添加成员', add_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
+  end
 
-    def new
-      @cash_queue_member = @cash_queue.cash_queue_members.build
+  collection_action :add, method: [:get, :post] do
+    @cash_queue = CashQueue.find(params[:cash_queue_id])
+    return render :add unless request.post?
+    @cash_queue_members = @cash_queue.cash_queue_members
+    nickname = params[:nickname]
+    if @cash_queue_members.pluck(:nickname).include?(nickname) || nickname.blank?
+      flash[:error] = '用户昵称已存在，请重新输入'
+    else
+      @cash_queue_members.create(nickname: nickname)
+      flash[:notice] = '用户写入成功'
     end
-
-    def set_cash_queue
-      @cash_queue = CashQueue.find(params[:cash_queue_id])
-    end
-
-    def set_cash_queue_member
-      @cash_queue_member = @cash_queue.cash_queue_members.find(params[:id])
-    end
+    redirect_to action: :index
   end
 
   member_action :cancel, method: :post do
