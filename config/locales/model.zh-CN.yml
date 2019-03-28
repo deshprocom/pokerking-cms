@@ -56,6 +56,7 @@
         name: '名称'
         image: '中文图片'
         image_en: '英文图片'
+        image_complex: '繁体图片'
       cash_queue:
         cash_game: '现金桌'
         small_blind: '小盲注'

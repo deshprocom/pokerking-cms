@@ -1,9 +1,21 @@
 ActiveAdmin.register Info do
+  menu priority: 4, parent: '资讯'
   config.sort_order = 'position_desc'
   belongs_to :main_event, optional: true
 
   permit_params :title, :image, :description, :source, :published,
                 :created_at, :main_event_id, :only_show_in_event, :hot
+
+  scope :all
+  scope :hot, &:hot
+
+  filter :title
+  filter :source
+  filter :description
+  filter :published
+  filter :created_at
+  filter :only_show_in_event
+  filter :hot
 
   form partial: 'form'
 
