@@ -2,5 +2,6 @@ context.instance_eval do
   column(:id)
   column(:name, sortable: false)
   column(:image, sortable: false) { |r| img_link_to_show(r, r.image_url) }
+  column(:image_en, sortable: false) { |r| img_link_to_show(r, r.image_en_url) }
   actions
 end

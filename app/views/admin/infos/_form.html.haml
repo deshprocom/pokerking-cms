@@ -9,6 +9,7 @@
                       image: proc { |o| o.image_url.to_s }
     = f.input :only_show_in_event
     = f.input :published
+    = f.input :hot
     = f.input :created_at
     ~ f.input :description
   = f.submit data: { disable_with: '请稍等...' }
