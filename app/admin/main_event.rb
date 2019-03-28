@@ -1,6 +1,7 @@
 ActiveAdmin.register MainEvent do
   permit_params :name, :logo, :begin_time, :end_time, :published, :description
   form partial: 'form'
+  config.sort_order = 'position_desc'
 
   index do
     render 'index', context: self
@@ -12,12 +13,6 @@ ActiveAdmin.register MainEvent do
 
   sidebar '侧边栏', only: [:show] do
     main_event_sidebar_generator(self)
-  end
-
-  controller do
-    def scoped_collection
-      super.position_desc.begin_asc
-    end
   end
 
   member_action :reposition, method: :post do
