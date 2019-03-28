@@ -4,7 +4,7 @@ ActiveAdmin.register Info do
 
   permit_params :title, :image, :description, :source, :published,
                 :created_at, :main_event_id, :only_show_in_event, :hot
-  
+
   form partial: 'form'
 
   index do

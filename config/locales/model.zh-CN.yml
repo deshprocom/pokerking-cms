@@ -54,7 +54,8 @@
         hot: '是否热门'
       cash_game:
         name: '名称'
-        image: '图片'
+        image: '中文图片'
+        image_en: '英文图片'
       cash_queue:
         cash_game: '现金桌'
         small_blind: '小盲注'
