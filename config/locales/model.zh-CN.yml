@@ -57,6 +57,7 @@
         published: "是否发布"
         created_at: "创建时间"
         updated_at: "更新时间"
+        hot: '是否热门'
       cash_game:
         name: '名称'
         image: '图片'
