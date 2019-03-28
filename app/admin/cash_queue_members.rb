@@ -4,6 +4,9 @@ ActiveAdmin.register CashQueueMember do
   config.sort_order = 'position_desc'
   actions :all, except: [:new]
 
+  filter :nickname
+  filter :created_at
+
   index do
     render 'index', context: self
   end
@@ -30,6 +33,22 @@ ActiveAdmin.register CashQueueMember do
       flash[:notice] = '用户写入成功'
     end
     redirect_to action: :index
+  end
+
+  member_action :member_queue_status, method: :post do
+    cash_queue_members =  resource.cash_queue.cash_queue_members.position_desc
+    index = 0
+    cash_queue_members.each_with_index do |v, k|
+      if v.eql?(resource)
+        index = k
+      end
+    end
+    @infos = {
+        nickname: resource.nickname,
+        index: index,
+        total: cash_queue_members.count
+    }
+    render :queue_status
   end
 
   member_action :cancel, method: :post do
