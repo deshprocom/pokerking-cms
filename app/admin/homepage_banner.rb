@@ -1,5 +1,5 @@
 ActiveAdmin.register HomepageBanner do
-  menu priority: 5, parent: '资料'
+  menu priority: 5, parent: '资讯'
   config.batch_actions = false
   config.filters = false
   config.sort_order = 'position_desc'
