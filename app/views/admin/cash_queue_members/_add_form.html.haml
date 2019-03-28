@@ -1,0 +1,5 @@
+%div#add_form
+  = form_tag add_admin_cash_queue_cash_queue_members_path(@cash_queue) do
+    = label_tag '昵称：'
+    = text_field_tag 'nickname'
+    = submit_tag '提交'
