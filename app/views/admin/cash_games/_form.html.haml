@@ -4,8 +4,8 @@
     = f.input :name
     = f.input :image, as: :attachment, required: true,
                      hint: '图片最大为 2MB',
-                     image: proc { |o| o.image_url }
+                     image: proc { |o| o.image_url.to_s }
     = f.input :image_en, as: :attachment, required: true,
                      hint: '图片最大为 2MB',
-                     image: proc { |o| o.image_en_url }
+                     image: proc { |o| o.image_en_url.to_s }
   = f.submit data: { disable_with: '请稍等...' }
