@@ -1,7 +1,10 @@
 ActiveAdmin.register Info do
   config.sort_order = 'position_desc'
+  belongs_to :main_event, optional: true
 
-  permit_params :title, :image, :description, :source, :published, :created_at, :hot
+  permit_params :title, :image, :description, :source, :published,
+                :created_at, :main_event_id, :only_show_in_event, :hot
+  
   form partial: 'form'
 
   index do

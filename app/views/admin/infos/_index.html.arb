@@ -1,5 +1,6 @@
 context.instance_eval do
   column(:id)
+  column(:main_event)
   column(:title)
   column(:source)
   column(:image, sortable: false) { |info| img_link_to_show(info, info.image_url) }
