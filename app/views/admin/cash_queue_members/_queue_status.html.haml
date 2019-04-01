@@ -3,6 +3,9 @@
     %span 排队人：
     %span.red= @infos[:nickname]
   %div
+    %span 排队编号：
+    %span.red= "No.#{@infos[:index] + 1}"
+  %div
     %span 当前总人数：
     %span.blue= @infos[:total]
   %div
