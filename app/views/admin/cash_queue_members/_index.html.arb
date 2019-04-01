@@ -1,6 +1,12 @@
 context.instance_eval do
-  column(:id)
-  column(:cash_queue, sortable: false)
+  queue_members = cash_queue.cash_queue_members.position_asc
+  column(:qid) do |resource|
+    index = 0
+    queue_members.each_with_index do |v, k|
+      break index = k if v.eql?(resource)
+    end
+    "No.#{index + 1}"
+  end
   column(:nickname)
   column(:created_at)
   column(:updated_at)
