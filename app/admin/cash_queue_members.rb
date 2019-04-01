@@ -9,6 +9,7 @@ ActiveAdmin.register CashQueueMember do
   filter :nickname
 
   index do
+    @page_title = "Awesome Title"
     render 'index', context: self
   end
 

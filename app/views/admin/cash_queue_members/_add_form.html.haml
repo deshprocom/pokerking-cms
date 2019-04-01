@@ -1,5 +1,6 @@
 %div#add_form
   = form_tag add_admin_cash_queue_cash_queue_members_path(@cash_queue) do
+    %div{style: 'margin-bottom: 15px; color: gray'} 当前盲注：#{@cash_queue.small_blind} / #{@cash_queue.big_blind}
     = label_tag '昵称：'
     = text_field_tag 'nickname'
     = submit_tag '提交'
