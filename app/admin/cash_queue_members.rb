@@ -18,6 +18,12 @@ ActiveAdmin.register CashQueueMember do
   end
 
   controller do
+    def index
+      cash_queue = CashQueue.find(params[:cash_queue_id])
+      @page_title = "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
+      super
+    end
+
     def scoped_collection
       super.current_day
     end
