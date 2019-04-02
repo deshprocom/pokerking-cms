@@ -1,8 +1,6 @@
 context.instance_eval do
   column(:id)
   column(:name, sortable: false)
-  column(:image, sortable: false) { |r| img_link_to_show(r, r.image_url) }
-  column(:image_en, sortable: false) { |r| img_link_to_show(r, r.image_en_url) }
-  column(:image_complex, sortable: false) { |r| img_link_to_show(r, r.image_complex_url) }
+  column(:image, sortable: false) { |r| link_to image_tag(r.image_url.to_s, height: 150), admin_cash_game_cash_queues_path(r) }
   actions
 end

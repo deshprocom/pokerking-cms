@@ -2,17 +2,43 @@ ActiveAdmin.register CashQueueMember do
   belongs_to :cash_queue
   permit_params :nickname, :published
   config.sort_order = 'position_desc'
+  config.batch_actions = false
   actions :all, except: [:new]
+  config.breadcrumb = false
 
   filter :nickname
-  filter :created_at
 
   index do
+    @page_title = "Awesome Title"
     render 'index', context: self
   end
 
   show do
     render 'show', context: self
+  end
+
+  controller do
+    def index
+      cash_queue = CashQueue.find(params[:cash_queue_id])
+      @page_title = "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
+      super
+    end
+
+    def scoped_collection
+      super.current_day
+    end
+  end
+
+  sidebar :'盲注结构列表', only: :index do
+    cash_queue = CashQueue.find(params[:cash_queue_id])
+    cash_game = cash_queue.cash_game
+    cash_queues = cash_game.cash_queues.order(small_blind: :asc)
+    div "#{cash_queue.small_blind} / #{cash_queue.big_blind} [current]"
+    cash_queues.each do |item|
+      next if item.eql? cash_queue
+      str = "#{item.small_blind} / #{item.big_blind}"
+      div link_to str, admin_cash_queue_cash_queue_members_path(item.id), class: 'queue_blind'
+    end
   end
 
   # 快捷添加用户的操作
@@ -36,7 +62,7 @@ ActiveAdmin.register CashQueueMember do
   end
 
   member_action :member_queue_status, method: :post do
-    cash_queue_members =  resource.cash_queue.cash_queue_members.position_desc
+    cash_queue_members =  resource.cash_queue.cash_queue_members.position_asc
     index = 0
     cash_queue_members.each_with_index do |v, k|
       if v.eql?(resource)
