@@ -23,10 +23,6 @@ ActiveAdmin.register CashQueueMember do
       @page_title = "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
       super
     end
-
-    def scoped_collection
-      super.current_day
-    end
   end
 
   sidebar :'盲注结构列表', only: :index do
