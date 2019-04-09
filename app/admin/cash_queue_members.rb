@@ -57,6 +57,20 @@ ActiveAdmin.register CashQueueMember do
     redirect_to action: :index
   end
 
+  member_action :edit_info, method: [:get, :post] do
+    @cash_queue = CashQueue.find(params[:cash_queue_id])
+    return render :edit_info unless request.post?
+    @cash_queue_members = @cash_queue.cash_queue_members
+    nickname = params[:nickname]
+    if @cash_queue_members.pluck(:nickname).include?(nickname) || nickname.blank?
+      flash[:error] = '用户昵称已存在，请重新输入'
+    else
+      resource.update(nickname: nickname)
+      flash[:notice] = '用户昵称修改成功'
+    end
+    redirect_to action: :index
+  end
+
   member_action :member_queue_status, method: :post do
     cash_queue_members =  resource.cash_queue.cash_queue_members.position_asc
     index = 0
