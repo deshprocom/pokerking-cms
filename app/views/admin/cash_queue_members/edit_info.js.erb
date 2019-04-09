@@ -1,0 +1,8 @@
+$('#edit_info').parents(".ui-dialog").remove();
+
+var html = "<%= j(render('edit_info', remote: true)) %>";
+$(html).dialog({
+    modal: true,
+    width: '500px',
+    title: '修改资料'
+});

@@ -7,7 +7,7 @@ context.instance_eval do
     end
     "No.#{index + 1}"
   end
-  column(:nickname)
+  column(:nickname, sortable: false)
   column(:created_at)
   column(:updated_at)
   actions defaults: false do |member|
@@ -15,6 +15,7 @@ context.instance_eval do
          method: :delete,
          data: {confirm: '确定取消排队吗？'},
          class: 'member_link'
+    item '修改', edit_info_admin_cash_queue_cash_queue_member_path(member.cash_queue, member), method: :get, class: 'member_link', remote: true
     item '查看排队情况', member_queue_status_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
          method: :post,
          remote: true
