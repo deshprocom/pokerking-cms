@@ -9,7 +9,6 @@ ActiveAdmin.register CashQueueMember do
   filter :nickname
 
   index do
-    @page_title = "Awesome Title"
     render 'index', context: self
   end
 
@@ -20,8 +19,12 @@ ActiveAdmin.register CashQueueMember do
   controller do
     def index
       cash_queue = CashQueue.find(params[:cash_queue_id])
-      @page_title = "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
+      @page_title = cash_queue.high_limit ? '排队列表 High Limit' : "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
       super
+    end
+
+    def queue_params
+      params.require(:cash_queue).permit(:small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no, :table_people)
     end
   end
 
@@ -63,12 +66,6 @@ ActiveAdmin.register CashQueueMember do
     redirect_to action: :index
   end
 
-  # 快捷添加用户的操作
-  action_item :edit_blind, only: :index do
-    cash_queue = CashQueue.find(params[:cash_queue_id])
-    link_to '修改当前盲注', edit_admin_cash_game_cash_queue_path(cash_queue.cash_game, cash_queue)
-  end
-
   member_action :edit_info, method: [:get, :post] do
     @cash_queue = CashQueue.find(params[:cash_queue_id])
     return render :edit_info unless request.post?
@@ -97,6 +94,19 @@ ActiveAdmin.register CashQueueMember do
         total: cash_queue_members.count
     }
     render :queue_status
+  end
+
+  # 快捷添加用户的操作
+  action_item :edit_blind, only: :index do
+    cash_queue = CashQueue.find(params[:cash_queue_id])
+    link_to '修改当前盲注', edit_blind_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
+  end
+
+  collection_action :edit_blind, method: [:get, :post] do
+    @cash_queue = CashQueue.find(params[:cash_queue_id])
+    return render :edit_blind unless request.post?
+    @cash_queue.update_attributes(queue_params)
+    redirect_to action: :index
   end
 
   member_action :cancel, method: :post do
