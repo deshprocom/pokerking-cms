@@ -66,7 +66,7 @@
         table_no: '桌子编号'
         buy_in: '买入'
         high_limit: 'high limit'
-        table_people: '桌子排队人数'
+        table_people: '桌面人数'
         created_at: '创建时间'
         updated_at: '更新时间'
       cash_queue_member:

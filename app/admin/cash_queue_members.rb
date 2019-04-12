@@ -29,12 +29,18 @@ ActiveAdmin.register CashQueueMember do
     cash_queue = CashQueue.find(params[:cash_queue_id])
     cash_game = cash_queue.cash_game
     cash_queues = cash_game.cash_queues.order(small_blind: :asc)
-    div "#{cash_queue.small_blind} / #{cash_queue.big_blind} [current]"
+    str_current = cash_queue.high_limit ? 'High Limit' : ("#{cash_queue.small_blind} / #{cash_queue.big_blind}")
+    div "#{str_current} [current]"
     cash_queues.each do |item|
       next if item.eql? cash_queue
-      str = "#{item.small_blind} / #{item.big_blind}"
+      str = item.high_limit ? 'High Limit' : "#{item.small_blind} / #{item.big_blind}"
       div link_to str, admin_cash_queue_cash_queue_members_path(item.id), class: 'queue_blind'
     end
+  end
+
+  sidebar :'相关链接', only: :index do
+    div link_to '查看盲注列表', admin_cash_game_cash_queues_path(cash_queue.cash_game)
+    div link_to '查看现金桌列表', admin_cash_games_path
   end
 
   # 快捷添加用户的操作
@@ -55,6 +61,12 @@ ActiveAdmin.register CashQueueMember do
       flash[:notice] = '用户写入成功'
     end
     redirect_to action: :index
+  end
+
+  # 快捷添加用户的操作
+  action_item :edit_blind, only: :index do
+    cash_queue = CashQueue.find(params[:cash_queue_id])
+    link_to '修改当前盲注', edit_admin_cash_game_cash_queue_path(cash_queue.cash_game, cash_queue)
   end
 
   member_action :edit_info, method: [:get, :post] do
