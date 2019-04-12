@@ -1,0 +1,8 @@
+$('#edit_blind').parents(".ui-dialog").remove();
+
+var html = "<%= j(render('edit_blind', remote: true)) %>";
+$(html).dialog({
+    modal: true,
+    width: '500px',
+    title: '修改当前盲注信息'
+});
