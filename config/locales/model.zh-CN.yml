@@ -1,6 +1,7 @@
 "zh-CN":
   activerecord:
     models:
+      admin_role: '后台角色'
       admin_user: "管理员"
       comment: "管理员备注"
       main_event: "赛事"
@@ -12,6 +13,7 @@
       homepage_banner: "首页banner"
       user: '用户管理'
       platform_question: '常见问题'
+      dashboard: '控制面板'
     attributes:
       admin_user:
         email: "邮箱"
@@ -22,6 +24,7 @@
         created_at: "注册时间"
         password: "密码"
         password_confirmation: "确认密码"
+        admin_roles: '后台角色'
       main_event:
         name: "主赛名称"
         logo: "主赛logo"
