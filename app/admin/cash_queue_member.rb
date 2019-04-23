@@ -2,7 +2,6 @@ ActiveAdmin.register CashQueueMember do
   belongs_to :cash_queue
   permit_params :nickname, :published
   config.sort_order = 'position_desc'
-  config.batch_actions = false
   actions :all, except: [:new]
   config.breadcrumb = false
 
