@@ -3,5 +3,8 @@
     %div{style: 'margin-bottom: 15px; color: gray'} 当前盲注：#{resource.cash_queue.small_blind} / #{resource.cash_queue.big_blind}
     %div{style: 'margin-bottom: 15px; color: gray'} 当前昵称: #{resource.nickname}
     = label_tag '修改昵称：'
-    = text_field_tag 'nickname'
+    = text_field_tag 'nickname', resource.nickname
+    %div{style: 'margin-top: 10px; margin-bottom: 10px'}
+      = label_tag '修改备注：'
+      = text_field_tag 'nickname', resource.memo
     = submit_tag '提交'

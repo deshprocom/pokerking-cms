@@ -1,6 +1,6 @@
 ActiveAdmin.register CashQueueMember do
   belongs_to :cash_queue
-  permit_params :nickname, :published
+  permit_params :nickname, :published, :memo
   config.sort_order = 'position_desc'
   actions :all, except: [:new]
   config.breadcrumb = false
@@ -53,13 +53,27 @@ ActiveAdmin.register CashQueueMember do
 
   collection_action :add, method: [:get, :post] do
     @cash_queue = CashQueue.find(params[:cash_queue_id])
+    @queue_lists = @cash_queue.cash_game.cash_queues
     return render :add unless request.post?
-    @cash_queue_members = @cash_queue.cash_queue_members
     nickname = params[:nickname]
-    if @cash_queue_members.pluck(:nickname).include?(nickname) || nickname.blank?
-      flash[:error] = '用户昵称已存在，请重新输入'
+    # 检查想要保存的queues里面是否有这个昵称，有的话不给添加，没有的话可以添加
+    queues = CashQueue.find(params[:queues])
+    flag = false
+    error_strs = []
+    queues.each do |queue|
+      if queue.cash_queue_members.pluck(:nickname).include?(nickname)
+        flag = true
+        error_strs.push("#{queue.small_blind}/#{queue.big_blind}")
+      end
+    end
+    if nickname.blank?
+      flash[:error] = "用户昵称不能为空，请重新输入."
+    elsif flag
+      flash[:error] = "用户昵称已存在，请重新输入. 存在的盲注结构有： #{error_strs.join(', ')}"
     else
-      @cash_queue_members.create(nickname: nickname)
+      queues.each do |queue|
+        queue.cash_queue_members.create(nickname: nickname, memo: params[:memo])
+      end
       flash[:notice] = '用户写入成功'
     end
     redirect_to action: :index
