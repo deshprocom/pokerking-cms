@@ -3,4 +3,14 @@
     %div{style: 'margin-bottom: 15px; color: gray'} 当前盲注：#{@cash_queue.small_blind} / #{@cash_queue.big_blind}
     = label_tag '昵称：'
     = text_field_tag 'nickname'
+    %div{style: 'margin-top: 10px; margin-bottom: 10px'}
+      = label_tag '备注：'
+      = text_field_tag 'memo'
+    %div{style: 'margin-top: 10px; margin-bottom: 10px'}
+      = label_tag '请勾选要发布到的盲注结构：'
+    %div
+      - @queue_lists.each do |list|
+        %span{style: 'margin-right: 20px'}
+          = label_tag "#{list.small_blind} / #{list.big_blind}"
+          = check_box_tag 'queues[]', list.id, @cash_queue.eql?(list)
     = submit_tag '提交'
