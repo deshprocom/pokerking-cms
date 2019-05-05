@@ -9,6 +9,9 @@ context.instance_eval do
     "No.#{index + 1}"
   end
   column(:nickname, sortable: false)
+  column(:memo, sortable: false) do |r|
+    best_in_place r, :memo, as: 'input', place_holder: '点我添加', url: admin_cash_queue_cash_queue_member_path(r.cash_queue, r)
+  end
   column(:created_at)
   column(:updated_at)
   actions defaults: false do |member|
