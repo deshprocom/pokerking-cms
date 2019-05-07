@@ -1,6 +1,6 @@
 ActiveAdmin.register CashQueue do
   belongs_to :cash_game
-  permit_params :small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no, :table_people, :high_limit
+  permit_params :small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no, :table_people, :high_limit, :notice
 
   index do
     render 'index', context: self
@@ -42,7 +42,7 @@ ActiveAdmin.register CashQueue do
 
     def user_params
       params.require(:cash_queue)
-            .permit(:small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no, :table_people, :high_limit)
+            .permit(:small_blind, :big_blind, :table_numbers, :members, :buy_in, :table_no, :table_people, :high_limit, :notice)
     end
   end
 end
