@@ -18,7 +18,7 @@ context.instance_eval do
       row(:table_no)
       row(:buy_in)
       row(:created_at)
-      row(:updated_at)
+      row(:notice)
     end
   end
 end

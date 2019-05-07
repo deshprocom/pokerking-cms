@@ -2,5 +2,6 @@ context.instance_eval do
   column(:id)
   column(:name, sortable: false)
   column(:image, sortable: false) { |r| link_to image_tag(r.image_url.to_s, height: 150), admin_cash_game_cash_queues_path(r) }
+  column :notice, sortable: false
   actions
 end
