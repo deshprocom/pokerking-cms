@@ -87,7 +87,7 @@ ActiveAdmin.register CashQueueMember do
     if @cash_queue_members.pluck(:nickname).include?(nickname) || nickname.blank?
       flash[:error] = '用户昵称已存在，请重新输入'
     else
-      resource.update(nickname: nickname)
+      resource.update(nickname: nickname, memo: params[:memo])
       flash[:notice] = '用户昵称修改成功'
     end
     redirect_to action: :index
