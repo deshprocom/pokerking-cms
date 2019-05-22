@@ -60,7 +60,6 @@
         image: '中文图片'
         image_en: '英文图片'
         image_complex: '繁体图片'
-        blind_navigation: '盲注导航'
       cash_queue:
         cash_game: '现金桌'
         small_blind: '小盲注'
@@ -71,6 +70,7 @@
         buy_in: '买入'
         high_limit: 'high limit'
         table_people: '桌面人数'
+        navigation: '盲注图片'
         created_at: '创建时间'
         updated_at: '更新时间'
       cash_queue_member:
