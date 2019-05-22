@@ -1,6 +1,7 @@
 context.instance_eval do
   column(:id)
   column(:cash_game, sortable: false)
+  column(:navigation, sortable: false) { |r| image_tag(r.navigation_url.to_s, height: 150) }
   column(:small_blind)
   column(:big_blind)
   column(:table_nums, sortable: false) do |cash_queue|
