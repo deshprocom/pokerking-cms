@@ -3,6 +3,9 @@
   = semantic_form_for @cash_queue, url: url do |f|
     = f.semantic_errors *f.object.errors.keys
     = f.inputs do
+      = f.input :navigation, as: :attachment, required: true,
+                     hint: '图片最大为 2MB',
+                     image: proc { |o| o.navigation_url.to_s }
       = f.input :small_blind
       = f.input :big_blind
       = f.input :table_no, hint: '桌子编号，比如开了1，4，6三张桌子，那么这里填写: 1,4,6'
