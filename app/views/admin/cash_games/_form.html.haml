@@ -12,5 +12,8 @@
                    hint: '图片最大为 2MB',
                    image: proc { |o| o.image_complex_url.to_s }
     = f.input :notice, hint: '长度限制64个字符'
+    = f.input :blind_navigation, as: :attachment, required: true,
+                     hint: '图片最大为 2MB',
+                     image: proc { |o| o.blind_navigation.to_s }
 
   = f.submit data: { disable_with: '请稍等...' }

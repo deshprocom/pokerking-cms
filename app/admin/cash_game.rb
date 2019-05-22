@@ -1,5 +1,5 @@
 ActiveAdmin.register CashGame do
-  permit_params :name, :image, :image_en, :image_complex, :notice
+  permit_params :name, :image, :image_en, :image_complex, :notice, :blind_navigation
   filter :name
   filter :created_at
   config.sort_order = 'position_desc'
