@@ -7,7 +7,6 @@ context.instance_eval do
     cash_queue.table_nums
   end
   column(:table_no, sortable: false)
-  column(:table_people, sortable: false)
   column(:buy_in, sortable: false)
   column(:high_limit, sortable: false)
   column(:cash_queue_members_count) do |cash_queue|
