@@ -3,7 +3,9 @@ context.instance_eval do
   column(:cash_game, sortable: false)
   column(:small_blind)
   column(:big_blind)
-  column(:table_numbers)
+  column(:table_nums, sortable: false) do |cash_queue|
+    cash_queue.table_nums
+  end
   column(:table_no, sortable: false)
   column(:table_people, sortable: false)
   column(:buy_in, sortable: false)
