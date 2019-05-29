@@ -1,7 +1,7 @@
 context.instance_eval do
   selectable_column
   queue_members = cash_queue.cash_queue_members.position_asc
-  column(:qid) do |resource|
+  column(:qid, sortable: 'position') do |resource|
     index = 0
     queue_members.each_with_index do |v, k|
       break index = k if v.eql?(resource)
