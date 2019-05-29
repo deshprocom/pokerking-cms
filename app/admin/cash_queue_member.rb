@@ -4,6 +4,7 @@ ActiveAdmin.register CashQueueMember do
   config.sort_order = 'position_desc'
   actions :all, except: [:new]
   config.breadcrumb = false
+  config.paginate = false
 
   filter :nickname
 
