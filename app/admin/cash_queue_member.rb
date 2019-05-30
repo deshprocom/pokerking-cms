@@ -24,7 +24,7 @@ ActiveAdmin.register CashQueueMember do
     end
 
     def queue_params
-      params.require(:cash_queue).permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :navigation)
+      params.require(:cash_queue).permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :navigation, :notice, :high_limit)
     end
   end
 
