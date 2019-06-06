@@ -77,7 +77,8 @@ ActiveAdmin.register CashQueueMember do
       end
       flash[:notice] = '用户写入成功'
     end
-    redirect_to action: :index
+    redirect_to request.referrer
+    # redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(), notice: '上热门成功'
   end
 
   member_action :edit_info, method: [:get, :post] do
@@ -91,7 +92,8 @@ ActiveAdmin.register CashQueueMember do
       resource.update(nickname: nickname, memo: params[:memo])
       flash[:notice] = '用户昵称修改成功'
     end
-    redirect_to action: :index
+    # redirect_to action: :index
+    redirect_to request.referrer
   end
 
   member_action :member_queue_status, method: :post do
@@ -120,7 +122,8 @@ ActiveAdmin.register CashQueueMember do
     @cash_queue = CashQueue.find(params[:cash_queue_id])
     return render :edit_blind unless request.post?
     @cash_queue.update_attributes(queue_params)
-    redirect_to action: :index
+    # redirect_to action: :index
+    redirect_to request.referrer
   end
 
   member_action :cancel, method: :post do
