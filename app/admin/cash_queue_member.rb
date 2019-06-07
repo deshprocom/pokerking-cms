@@ -23,6 +23,11 @@ ActiveAdmin.register CashQueueMember do
       super
     end
 
+    def destroy
+      CashQueueMember.find(params[:id]).destroy
+      redirect_to request.referrer
+    end
+
     def queue_params
       params.require(:cash_queue).permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :navigation, :notice, :high_limit)
     end
