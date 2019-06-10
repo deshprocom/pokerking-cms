@@ -51,6 +51,12 @@ ActiveAdmin.register CashQueueMember do
     div link_to '查看现金桌列表', admin_cash_games_path
   end
 
+  # 批量删除操作
+  batch_action :destroy, confirm: 'Are you sure?' do |ids|
+    CashQueueMember.find(ids).each(&:destroy)
+    redirect_to request.referrer
+  end
+
   # 快捷添加用户的操作
   action_item :add, only: :index do
     cash_queue = CashQueue.find(params[:cash_queue_id])
