@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  menu priority: 1, parent: '管理员', label: '管理员列表'
+  menu priority: 1, parent: 'admin'
   permit_params :email, :password, :password_confirmation, admin_role_ids: []
 
   index do

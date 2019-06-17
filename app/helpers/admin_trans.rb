@@ -1,3 +1,3 @@
 module AdminTrans
-  SOURCE_TYPES = [['资讯', 'info']]
+  SOURCE_TYPES = [[I18n.t("activerecord.models.info"), 'info']]
 end

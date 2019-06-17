@@ -1,5 +1,8 @@
 "zh-CN":
   activerecord:
+    menu:
+      admin: '管理员'
+      info:  '资讯'
     models:
       admin_role: '后台角色'
       admin_user: "管理员"

@@ -1,0 +1,105 @@
+"en":
+  activerecord:
+    menu:
+      admin: 'Admin'
+      info:  'Info'
+    models:
+      admin_role: 'Role'
+      admin_user: "Admin"
+      comment: "Admin Memo"
+      main_event: "Event"
+      event_schedule: "Event Schedule"
+      cash_game: 'Cash Game'
+      cash_queue: 'Blind'
+      cash_queue_member: 'Waiting List'
+      info: "Media"
+      homepage_banner: "App Banner"
+      user: 'Users'
+      platform_question: 'Platform Question'
+      dashboard: 'dashboard'
+    attributes:
+      admin_user:
+        email: "E-mail Address"
+        sign_in_count: "Times of Login"
+        current_sign_in_at: "Current Login Date"
+        last_sign_in_at: "Last Login Time"
+        last_sign_in_ip: "Last Login ip"
+        created_at: "Date of Register"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        admin_roles: 'Role'
+      main_event:
+        name: "Event Name"
+        logo: "Event Banner"
+        begin_time: "Begin"
+        end_time: "End"
+        event_state: "Event Status"
+        published: "Release"
+        description: "Description"
+      event_schedule:
+        name: "Event Name"
+        event_type: "Type"
+        event_num: "Side Event#"
+        buy_in: "Buyin"
+        starting_stack: "Starting Chip"
+        entries: "Registerd"
+        schedule_pdf: "Event Structure"
+        begin_time: "Starting Date"
+        reg_open: "Start Registration"
+        reg_close: "End Registration"
+      info:
+        main_event: "Belongs to"
+        only_show_in_event: "Release in Selected Event"
+        title: "Heading"
+        image: "Cover Page"
+        source: "Source From"
+        description: "Description"
+        published: "Release"
+        created_at: "Create Time"
+        updated_at: "Update Time"
+        hot: 'Hot'
+      cash_game:
+        name: 'Poker Room'
+        image: 'Picture'
+        image_en: 'English Picture'
+        image_complex: 'Fanti Picture'
+      cash_queue:
+        cash_game: 'Room'
+        small_blind: 'Blind Picture'
+        big_blind: 'Big Blind'
+        table_nums: 'Tables'
+        cash_queue_members_count: 'Total Count'
+        table_no: 'Table Number'
+        buy_in: 'Buyin'
+        high_limit: 'high limit'
+        table_people: 'Table People'
+        navigation: 'Blind Picture'
+        created_at: 'Create Time'
+        updated_at: 'Update Time'
+      cash_queue_member:
+        qid: 'Queue'
+        nickname: 'Name'
+        memo: 'Remark'
+        canceled: 'Canceled'
+        created_at: 'Create Time'
+        updated_at: 'Update Time'
+      homepage_banner:
+        source_title: 'Source Address'
+        source_type: 'SourceType'
+        image: 'CoverPage'
+      user:
+        nickname: 'Username'
+        email: 'E-mail Address'
+        mobile: 'Phone Number'
+        reg_date: 'Date of Register'
+        last_visit: 'Last Visit Date'
+        login_count: 'Login Count'
+        login_days: 'Login last'
+        created_at: 'Create Time'
+        last_sign_in_ip: 'IP Address'
+        avatar: 'Profile Photo'
+      platform_question:
+        description: 'Question List'
+    format: "%{attribute}%{message}"
+    messages:
+      blank: 'cannot blank'
