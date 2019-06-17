@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminRole do
-  menu priority: 2, parent: '管理员', label: '后台权限分配'
+  menu priority: 2, parent: 'admin'
   config.filters = false
   permit_params :name, :memo, permissions: []
 

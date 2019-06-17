@@ -1,5 +1,5 @@
 ActiveAdmin.register Info do
-  menu priority: 4, parent: '资讯'
+  menu priority: 4, parent: 'info'
   config.sort_order = 'position_desc'
   belongs_to :main_event, optional: true
 
