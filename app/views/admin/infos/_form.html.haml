@@ -5,14 +5,14 @@
     = f.input :title
     = f.input :source
     = f.input :image, as: :attachment, required: true,
-                      hint: '图片最大为2MB，尺寸比例 244 X 148px',
+                      hint: I18n.t('notices.max_image_size') + '2MB, Size: 244 X 148px',
                       image: proc { |o| o.image_url.to_s }
     = f.input :only_show_in_event
     = f.input :published
     = f.input :hot
     = f.input :created_at
     ~ f.input :description
-  = f.submit data: { disable_with: '请稍等...' }
+  = f.submit data: { disable_with: 'Waiting...' }
 
 :javascript
     $(function() {

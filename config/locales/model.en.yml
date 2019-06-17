@@ -1,4 +1,19 @@
 "en":
+  sidebars:
+    add: 'Add'
+    edit_current_blind: 'Edit Current Blind'
+  notices:
+    username_blank: 'Username cannot be empty, please re-enter!'
+    username_exist_in_blinds: 'Username already exists, please re-enter. The existing blind structure has'
+    write_access: 'User write success'
+    username_exist: 'Username already exists, please re-enter.'
+    max_image_size: 'Maximum File Size'
+    length_max_size: 'Maximum length'
+    click_me: 'Click Me'
+    show_queue: 'Detail'
+  buttons:
+    delete: 'Delete'
+    update: 'Edit'
   activerecord:
     menu:
       admin: 'Admin'
@@ -100,6 +115,9 @@
         avatar: 'Profile Photo'
       platform_question:
         description: 'Question List'
+      admin_role:
+        name: 'Role Name'
+        memo: 'remark'
     format: "%{attribute}%{message}"
     messages:
       blank: 'cannot blank'

@@ -19,7 +19,7 @@ ActiveAdmin.register CashQueueMember do
   controller do
     def index
       cash_queue = CashQueue.find(params[:cash_queue_id])
-      @page_title = cash_queue.high_limit ? '排队列表 High Limit' : "排队列表 #{cash_queue.small_blind} / #{cash_queue.big_blind}"
+      @page_title = cash_queue.high_limit ? 'Waiting List High Limit' : "Waiting List #{cash_queue.small_blind} / #{cash_queue.big_blind}"
       super
     end
 
@@ -33,12 +33,12 @@ ActiveAdmin.register CashQueueMember do
     end
   end
 
-  sidebar :'盲注结构列表', only: :index do
+  sidebar 'Other Blinds', only: :index do
     cash_queue = CashQueue.find(params[:cash_queue_id])
     cash_game = cash_queue.cash_game
     cash_queues = cash_game.cash_queues.order(small_blind: :asc)
     str_current = cash_queue.high_limit ? 'High Limit' : ("#{cash_queue.small_blind} / #{cash_queue.big_blind}")
-    div "#{str_current} [current]"
+    div "#{str_current} [Current]"
     cash_queues.each do |item|
       next if item.eql? cash_queue
       str = item.high_limit ? 'High Limit' : "#{item.small_blind} / #{item.big_blind}"
@@ -46,9 +46,9 @@ ActiveAdmin.register CashQueueMember do
     end
   end
 
-  sidebar :'相关链接', only: :index do
-    div link_to '查看盲注列表', admin_cash_game_cash_queues_path(cash_queue.cash_game)
-    div link_to '查看现金桌列表', admin_cash_games_path
+  sidebar :'Link to', only: :index do
+    div link_to 'Blinds', admin_cash_game_cash_queues_path(cash_queue.cash_game)
+    div link_to 'Rooms', admin_cash_games_path
   end
 
   # 批量删除操作
@@ -60,7 +60,7 @@ ActiveAdmin.register CashQueueMember do
   # 快捷添加用户的操作
   action_item :add, only: :index do
     cash_queue = CashQueue.find(params[:cash_queue_id])
-    link_to '添加成员', add_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
+    link_to I18n.t("sidebars.add"), add_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
   end
 
   collection_action :add, method: [:get, :post] do
@@ -79,17 +79,16 @@ ActiveAdmin.register CashQueueMember do
       end
     end
     if nickname.blank?
-      flash[:error] = "用户昵称不能为空，请重新输入."
+      flash[:error] = I18n.t("notices.username_blank")
     elsif flag
-      flash[:error] = "用户昵称已存在，请重新输入. 存在的盲注结构有： #{error_strs.join(', ')}"
+      flash[:error] = I18n.t("notices.username_exist_in_blinds") + ": #{error_strs.join(', ')}"
     else
       queues.each do |queue|
         queue.cash_queue_members.create(nickname: nickname, memo: params[:memo])
       end
-      flash[:notice] = '用户写入成功'
+      flash[:notice] = I18n.t("notices.write_access")
     end
     redirect_to request.referrer
-    # redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(), notice: '上热门成功'
   end
 
   member_action :edit_info, method: [:get, :post] do
@@ -98,10 +97,10 @@ ActiveAdmin.register CashQueueMember do
     @cash_queue_members = @cash_queue.cash_queue_members
     nickname = params[:nickname]
     if @cash_queue_members.pluck(:nickname).include?(nickname) || nickname.blank?
-      flash[:error] = '用户昵称已存在，请重新输入'
+      flash[:error] = I18n.t("notices.username_exist")
     else
       resource.update(nickname: nickname, memo: params[:memo])
-      flash[:notice] = '用户昵称修改成功'
+      flash[:notice] = 'update success'
     end
     # redirect_to action: :index
     redirect_to request.referrer
@@ -126,7 +125,7 @@ ActiveAdmin.register CashQueueMember do
   # 快捷添加用户的操作
   action_item :edit_blind, only: :index do
     cash_queue = CashQueue.find(params[:cash_queue_id])
-    link_to '修改当前盲注', edit_blind_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
+    link_to I18n.t("sidebars.edit_current_blind"), edit_blind_admin_cash_queue_cash_queue_members_path(cash_queue), remote: true
   end
 
   collection_action :edit_blind, method: [:get, :post] do
@@ -139,12 +138,12 @@ ActiveAdmin.register CashQueueMember do
 
   member_action :cancel, method: :post do
     resource.canceled!
-    redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(resource.cash_queue), notice: '取消成功'
+    redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(resource.cash_queue), notice: 'Cancel Success'
   end
 
   member_action :uncancel, method: :post do
     resource.uncanceled!
-    redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(resource.cash_queue), notice: '重新排队成功'
+    redirect_back fallback_location: admin_cash_queue_cash_queue_members_url(resource.cash_queue), notice: 'Reorder Success'
   end
 
   member_action :reposition, method: :post do

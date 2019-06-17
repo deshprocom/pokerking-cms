@@ -3,12 +3,12 @@
     = f.semantic_errors *f.object.errors.keys
     = f.inputs do
       = f.input :navigation, as: :attachment, required: true,
-                     hint: '图片最大为 2MB',
+                     hint: I18n.t('notices.max_image_size') + ' 2MB',
                      image: proc { |o| o.navigation_url.to_s }
       = f.input :small_blind
       = f.input :big_blind
-      = f.input :table_no, hint: '桌子编号，比如开了1，4，6三张桌子，那么这里填写: 1,4,6'
-      = f.input :buy_in, hint: '该级别买入的范围，比如 25K-50K(HKD)'
+      = f.input :table_no, hint: 'For example: 1,4,6'
+      = f.input :buy_in, hint: 'For example 25K-50K(HKD)'
       = f.input :high_limit
-      = f.input :notice, hint: '长度限制64个字符'
+      = f.input :notice, hint: I18n.t('notices.length_max_size') + ' 64 bytes'
     = f.actions
