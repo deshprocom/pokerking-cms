@@ -2,7 +2,7 @@
   = f.semantic_errors *f.object.errors.keys
   = f.inputs do
     = f.input :image, as: :attachment, required: true,
-                   hint: '图片最大为 2MB, 尺寸比例 750 X 320px',
+                   hint: I18n.t('notices.max_image_size') + ' 2MB, Size 750 X 320px',
                    image: proc { |o| o.image_url.to_s }
     = f.input :source_type, as: :select, collection: AdminTrans::SOURCE_TYPES, include_blank: false,
               input_html: { class: 'trigger_search_form' }

@@ -14,7 +14,7 @@ ActiveAdmin.register CashGame do
 
   form partial: 'form'
 
-  sidebar '侧边栏', only: [:show] do
+  sidebar 'Sidebar', only: [:show] do
     cash_queue_sidebar_generator(self)
   end
 

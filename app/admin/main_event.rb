@@ -11,7 +11,7 @@ ActiveAdmin.register MainEvent do
     render 'show', context: self
   end
 
-  sidebar '侧边栏', only: [:show] do
+  sidebar 'Sidebar', only: [:show] do
     main_event_sidebar_generator(self)
   end
 

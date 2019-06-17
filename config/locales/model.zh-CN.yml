@@ -1,4 +1,19 @@
 "zh-CN":
+  sidebars:
+    add: '添加'
+    edit_current_blind: '修改当前盲注'
+  notices:
+    username_blank: '用户昵称不能为空，请重新输入.'
+    username_exists: '用户昵称已存在，请重新输入. 存在的盲注结构有'
+    write_access: '用户写入成功'
+    username_exist: '用户昵称已存在，请重新输入'
+    max_image_size: '图片最大为'
+    length_max_size: '长度限制'
+    click_me: '点我添加'
+    show_queue: '查看排队情况'
+  buttons:
+    delete: '删除'
+    update: '修改'
   activerecord:
     menu:
       admin: '管理员'
@@ -100,6 +115,9 @@
         avatar: '头像'
       platform_question:
         description: '问题列表'
+      admin_role:
+        name: '角色名称'
+        memo: '备注'
     format: "%{attribute}%{message}"
     messages:
       blank: '不能为空'

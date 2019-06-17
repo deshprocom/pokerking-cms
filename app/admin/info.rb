@@ -30,13 +30,13 @@ ActiveAdmin.register Info do
   # 上热门
   member_action :hot, method: :post do
     resource.hot!
-    redirect_back fallback_location: admin_infos_url, notice: '上热门成功'
+    redirect_back fallback_location: admin_infos_url, notice: 'Update Success'
   end
 
   # 取消上热门
   member_action :unhot, method: :post do
     resource.unhot!
-    redirect_back fallback_location: admin_infos_url, notice: '取消热门成功'
+    redirect_back fallback_location: admin_infos_url, notice: 'Cancel Success'
   end
 
   member_action :reposition, method: :post do

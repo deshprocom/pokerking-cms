@@ -10,17 +10,17 @@ context.instance_eval do
   end
   column(:nickname, sortable: false)
   column(:memo, sortable: false) do |r|
-    best_in_place r, :memo, as: 'input', place_holder: '点我添加', url: admin_cash_queue_cash_queue_member_path(r.cash_queue, r)
+    best_in_place r, :memo, as: 'input', place_holder: I18n.t('notices.click_me'), url: admin_cash_queue_cash_queue_member_path(r.cash_queue, r)
   end
   column(:created_at)
   column(:updated_at)
   actions defaults: false do |member|
-    item '删除', admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
+    item I18n.t('buttons.delete'), admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
          method: :delete,
-         data: {confirm: '确定取消排队吗？'},
+         data: {confirm: 'Are you sure？'},
          class: 'member_link'
-    item '修改', edit_info_admin_cash_queue_cash_queue_member_path(member.cash_queue, member), method: :get, class: 'member_link', remote: true
-    item '查看排队情况', member_queue_status_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
+    item I18n.t('buttons.update'), edit_info_admin_cash_queue_cash_queue_member_path(member.cash_queue, member), method: :get, class: 'member_link', remote: true
+    item I18n.t('notices.show_queue'), member_queue_status_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
          method: :post,
          remote: true
   end

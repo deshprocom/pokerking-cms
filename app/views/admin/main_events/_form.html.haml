@@ -3,14 +3,14 @@
   = f.inputs do
     = f.input :name
     = f.input :logo, as: :attachment, required: true,
-                     hint: '图片最大为2MB， 尺寸比例 576 X 288px',
+                     hint: I18n.t('notices.max_image_size') + ' 2MB, Size 576 X 288px',
                      image: proc { |o| o.logo_url.to_s }
 
     = f.input :begin_time
     = f.input :end_time
     = f.input :published
     ~ f.input :description
-  = f.submit data: { disable_with: '请稍等...' }
+  = f.submit data: { disable_with: 'Wating...' }
 
 :javascript
     $(function() {
