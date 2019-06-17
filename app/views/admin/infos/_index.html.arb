@@ -9,9 +9,9 @@ context.instance_eval do
   column(:created_at)
   column(:hot) do |info|
     if info.hot?
-      link_to '取消热门', unhot_admin_info_path(info), method: :post
+      link_to 'Hot Cancel', unhot_admin_info_path(info), method: :post
     else
-      link_to '上热门', hot_admin_info_path(info), method: :post
+      link_to 'Hot', hot_admin_info_path(info), method: :post
     end
   end
   actions

@@ -5,8 +5,8 @@ ActiveAdmin.register AdminRole do
 
   form do |f|
     f.inputs do
-      f.input :name, label: '角色名称'
-      f.input :memo, label: '备注'
+      f.input :name
+      f.input :memo
       f.input :permissions,
               as: :check_boxes,
               collection: CmsAuthorization.permissions_with_trans
@@ -40,9 +40,9 @@ ActiveAdmin.register AdminRole do
     end
 
     def destroy_super_admin?
-      return unless resource.name == '超级管理员'
+      return unless resource.name == 'Super Admin'
 
-      flash[:error] = '不能删除超级管理员'
+      flash[:error] = 'Cannot delete Super Admin'
       redirect_back fallback_location: admin_admin_roles_url
     end
   end

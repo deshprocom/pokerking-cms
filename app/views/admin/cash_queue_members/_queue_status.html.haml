@@ -1,13 +1,13 @@
 %div#queue_status
   %div
-    %span 排队人：
+    %span Name：
     %span.red= @infos[:nickname]
   %div
-    %span 排队编号：
+    %span No：
     %span.red= "No.#{@infos[:index] + 1}"
   %div
-    %span 当前总人数：
+    %span Total：
     %span.blue= @infos[:total]
   %div
-    %span 前面等待人数：
+    %span Waiting Number：
     %span.blue= @infos[:index]
