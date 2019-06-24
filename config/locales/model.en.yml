@@ -113,6 +113,7 @@
         created_at: 'Create Time'
         last_sign_in_ip: 'IP Address'
         avatar: 'Profile Photo'
+        preview: 'Preview'
       platform_question:
         description: 'Question List'
       admin_role:
