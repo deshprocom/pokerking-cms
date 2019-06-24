@@ -113,6 +113,7 @@
         created_at: '创建时间'
         last_sign_in_ip: '登录IP'
         avatar: '头像'
+        preview: '预览'
       platform_question:
         description: '问题列表'
       admin_role:

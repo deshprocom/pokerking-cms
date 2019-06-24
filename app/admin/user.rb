@@ -12,4 +12,16 @@ ActiveAdmin.register User do
   index do
     render 'index', context: self
   end
+
+  # 上热门
+  member_action :preview, method: :post do
+    resource.update(preview: true)
+    redirect_back fallback_location: admin_users_url, notice: 'Update Success'
+  end
+
+  # 取消上热门
+  member_action :unpreview, method: :post do
+    resource.update(preview: false)
+    redirect_back fallback_location: admin_users_url, notice: 'Cancel Success'
+  end
 end
