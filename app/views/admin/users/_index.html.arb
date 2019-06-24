@@ -13,5 +13,14 @@ context.instance_eval do
   column :login_count
   column :login_days
   column :last_sign_in_ip, sortable: false
+  if current_admin_user.has_super_permission?
+    column(:preview, sortable: false) do |user|
+      if user.preview?
+        link_to 'Cancel', unpreview_admin_user_path(user), method: :post
+      else
+        link_to 'Previewable', preview_admin_user_path(user), method: :post
+      end
+    end
+  end
   column :created_at
 end
