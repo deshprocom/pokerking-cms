@@ -25,5 +25,3 @@ context.instance_eval do
          remote: true
   end
 end
-
-
