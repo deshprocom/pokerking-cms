@@ -9,9 +9,10 @@ $ ->
               itemId = ui.item.attr('id')
               prevId = ui.item.prev().attr('id')
               nextId = ui.item.next().attr('id')
+              pathname = window.location.pathname
+              url = pathname.replace(/\/admin.*/, '') + url
 
               if(options && options.level == 2)
-                pathname = window.location.pathname
                 level_param = options.level_param
                 level_param_id = parseInt(pathname.replace(/[^0-9]+/g, ''))
 
