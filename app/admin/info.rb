@@ -47,7 +47,7 @@ ActiveAdmin.register Info do
     private
 
     def recreate_tag_relation
-      if params[:tag_ids]&.length > 0
+      if params[:tag_ids].present? && params[:tag_ids].length > 0
         params[:tag_ids].each do |item|
           InfoTagRelation.create!(info_id: @info.id, info_tag_id: item)
         end
