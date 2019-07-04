@@ -27,6 +27,46 @@ ActiveAdmin.register Info do
     render 'show', context: self
   end
 
+  controller do
+    def create
+      @info = Info.create!(create_params)
+      # 如果创建成功 那么查看是否上传了 tag ids
+      recreate_tag_relation
+      redirect_to admin_infos_url
+    end
+
+    def update
+      resource.assign_attributes(create_params)
+      # 取出之前的所有标签
+      old_relations = @info.reload.info_tag_relations
+      old_relations.each(&:destroy)
+      recreate_tag_relation
+      redirect_to admin_infos_url
+    end
+
+    private
+
+    def recreate_tag_relation
+      if params[:tag_ids]&.length > 0
+        params[:tag_ids].each do |item|
+          InfoTagRelation.create!(info_id: @info.id, info_tag_id: item)
+        end
+      end
+    end
+
+    def create_params
+      params.require(:info).permit(:title,
+                                   :image,
+                                   :description,
+                                   :source,
+                                   :published,
+                                   :created_at,
+                                   :main_event_id,
+                                   :only_show_in_event,
+                                   :hot)
+    end
+  end
+
   # 上热门
   member_action :hot, method: :post do
     resource.hot!
