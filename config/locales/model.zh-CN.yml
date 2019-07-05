@@ -32,6 +32,7 @@
       user: '用户管理'
       platform_question: '常见问题'
       dashboard: '控制面板'
+      info_tag: '资讯标签'
     attributes:
       admin_user:
         email: "邮箱"
@@ -73,6 +74,10 @@
         created_at: "创建时间"
         updated_at: "更新时间"
         hot: '是否热门'
+        info_tags: '标签'
+      info_tag:
+        name: '标签名'
+        name_en: '标签英文名'
       cash_game:
         name: '名称'
         image: '中文图片'

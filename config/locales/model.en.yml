@@ -32,6 +32,7 @@
       user: 'Users'
       platform_question: 'Platform Question'
       dashboard: 'dashboard'
+      info_tag : 'Info Tags'
     attributes:
       admin_user:
         email: "E-mail Address"
@@ -73,6 +74,10 @@
         created_at: "Create Time"
         updated_at: "Update Time"
         hot: 'Hot'
+        info_tags: 'Info Tags'
+      info_tag:
+        name: 'Name'
+        name_en: 'Name En'
       cash_game:
         name: 'Poker Room'
         image: 'Picture'
