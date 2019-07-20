@@ -83,6 +83,7 @@
         image: 'Picture'
         image_en: 'English Picture'
         image_complex: 'Fanti Picture'
+        table_type: 'Table Type'
       cash_queue:
         cash_game: 'Room'
         small_blind: 'Blind Picture'
@@ -92,6 +93,8 @@
         table_no: 'Table Number'
         buy_in: 'Buyin'
         high_limit: 'high limit'
+        transfer: 'transfer request'
+        currency: 'Currency'
         table_people: 'Table People'
         navigation: 'Blind Picture'
         created_at: 'Create Time'

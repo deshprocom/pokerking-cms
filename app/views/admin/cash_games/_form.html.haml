@@ -11,6 +11,7 @@
     = f.input :image_complex, as: :attachment, required: true,
                    hint: I18n.t('notices.max_image_size') + ' 2MB',
                    image: proc { |o| o.image_complex_url.to_s }
+    = f.input :table_type, collection: AdminTrans::TABLE_TYPE, prompt: true
     = f.input :notice, hint: I18n.t('notices.length_max_size') + ' 64 bytes'
 
   = f.submit data: { disable_with: 'Waiting...' }
