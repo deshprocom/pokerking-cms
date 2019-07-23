@@ -88,6 +88,7 @@
         cash_game: 'Room'
         small_blind: 'Blind Picture'
         big_blind: 'Big Blind'
+        straddle: 'Straddle'
         table_nums: 'Tables'
         cash_queue_members_count: 'Total Count'
         table_no: 'Table Number'
