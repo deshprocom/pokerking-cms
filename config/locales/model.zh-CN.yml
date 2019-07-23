@@ -88,6 +88,7 @@
         cash_game: '现金桌'
         small_blind: '小盲注'
         big_blind: '大盲注'
+        straddle: '大盲前注'
         table_nums: '桌数'
         cash_queue_members_count: '排队的人数'
         table_no: '桌子编号'

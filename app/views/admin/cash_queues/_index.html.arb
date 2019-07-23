@@ -5,6 +5,7 @@ context.instance_eval do
   column(:currency)
   column(:small_blind)
   column(:big_blind)
+  column(:straddle)
   column(:table_nums, sortable: false) do |cash_queue|
     cash_queue.table_nums
   end

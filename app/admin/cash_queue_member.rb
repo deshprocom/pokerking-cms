@@ -20,7 +20,7 @@ ActiveAdmin.register CashQueueMember do
     def index
       cash_queue = CashQueue.find(params[:cash_queue_id])
       if !cash_queue.high_limit && !cash_queue.transfer
-        @page_title = "Waiting List #{cash_queue.small_blind} / #{cash_queue.big_blind}"
+        @page_title = "Waiting List #{cash_queue.blind_info}"
       else
         string = cash_queue.high_limit ? 'High Limit ' : ''
         @page_title = cash_queue.transfer ? (string + 'Transfer Request') : string
@@ -35,7 +35,7 @@ ActiveAdmin.register CashQueueMember do
     end
 
     def queue_params
-      params.require(:cash_queue).permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :navigation, :notice, :high_limit)
+      params.require(:cash_queue).permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :navigation, :notice, :currency, :high_limit, :transfer, :straddle, :position, :queue_type)
     end
   end
 
@@ -44,7 +44,7 @@ ActiveAdmin.register CashQueueMember do
     cash_game = cash_queue.cash_game
     cash_queues = cash_game.cash_queues.order(small_blind: :asc)
     if !cash_queue.high_limit && !cash_queue.transfer
-      str_current = "#{cash_queue.small_blind} / #{cash_queue.big_blind}"
+      str_current = "#{cash_queue.blind_info}"
     else
       string = cash_queue.high_limit ? 'High Limit ' : ''
       str_current = cash_queue.transfer ? (string + 'Transfer Request') : string
@@ -53,7 +53,7 @@ ActiveAdmin.register CashQueueMember do
     cash_queues.each do |item|
       next if item.eql? cash_queue
       if !item.high_limit && !item.transfer
-        str = "#{item.small_blind} / #{item.big_blind}"
+        str = "#{item.blind_info}"
       else
         string = item.high_limit ? 'High Limit ' : ''
         str = item.transfer ? (string + 'Transfer Request') : string

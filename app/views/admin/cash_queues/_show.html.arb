@@ -15,6 +15,7 @@ context.instance_eval do
       row(:currency)
       row(:small_blind)
       row(:big_blind)
+      row(:straddle)
       row(:table_nums) do |cash_queue|
         cash_queue.table_nums
       end

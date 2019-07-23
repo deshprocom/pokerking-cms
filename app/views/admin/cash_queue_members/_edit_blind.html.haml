@@ -2,15 +2,14 @@
   = semantic_form_for @cash_queue, url: edit_blind_admin_cash_queue_cash_queue_members_path(@cash_queue), method: 'post' do |f|
     = f.semantic_errors *f.object.errors.keys
     = f.inputs do
-      = f.input :navigation, as: :attachment, required: true,
-                     hint: I18n.t('notices.max_image_size') + ' 2MB',
-                     image: proc { |o| o.navigation_url.to_s }
+      -#= f.input :navigation, as: :attachment, required: true,
+      -#               hint: I18n.t('notices.max_image_size') + ' 2MB',
+      -#               image: proc { |o| o.navigation_url.to_s }
       = f.input :currency, collection: AdminTrans::CURRENCY_TYPES, prompt: true
       = f.input :small_blind
       = f.input :big_blind
+      = f.input :straddle
       = f.input :table_no, hint: 'For example: 1,4,6'
       = f.input :buy_in, hint: 'For example 25K-50K(HKD)'
-      = f.input :high_limit
-      = f.input :transfer
       = f.input :notice, hint: I18n.t('notices.length_max_size') + ' 64 bytes'
     = f.actions
