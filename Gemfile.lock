@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action-store (0.3.3)
+      rails (~> 5)
     actioncable (5.2.2)
       actionpack (= 5.2.2)
       nio4r (~> 2.0)
@@ -317,6 +319,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action-store
   activeadmin
   acts_as_list
   best_in_place
@@ -358,4 +361,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.17.3
