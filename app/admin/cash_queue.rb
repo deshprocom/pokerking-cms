@@ -23,7 +23,8 @@ ActiveAdmin.register CashQueue do
 
     def create
       @cash_game.cash_queues.create(user_params)
-      render :index
+      # render :index
+      redirect_to admin_cash_game_cash_queues_path(@cash_game)
     end
 
     def update
