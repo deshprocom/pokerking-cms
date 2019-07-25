@@ -10,7 +10,10 @@ $ ->
               prevId = ui.item.prev().attr('id')
               nextId = ui.item.next().attr('id')
               pathname = window.location.pathname
-              url = pathname.replace(/\/admin.*/, '') + url
+              console.log(url, /^(\/zh-CN)|(\/en)/.test url)
+              unless /^(\/zh-CN)|(\/en)/.test url
+                url = pathname.replace(/\/admin.*/, '') + url # 第一次需要给它加上语言
+              console.log(url)
 
               if(options && options.level == 2)
                 level_param = options.level_param

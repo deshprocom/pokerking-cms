@@ -48,6 +48,7 @@ gem 'haml'
 gem 'simditor'
 
 gem 'best_in_place'
+gem 'action-store'
 
 # 文件上传处理 相关
 gem 'carrierwave', '~> 1.0'

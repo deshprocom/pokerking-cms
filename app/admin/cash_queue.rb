@@ -1,6 +1,7 @@
 ActiveAdmin.register CashQueue do
   belongs_to :cash_game
-  permit_params :small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :high_limit, :notice, :navigation
+  config.sort_order = 'position_desc'
+  permit_params :small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :currency, :high_limit, :transfer, :notice, :navigation, :straddle, :position, :queue_type
 
   index do
     render 'index', context: self
@@ -22,7 +23,8 @@ ActiveAdmin.register CashQueue do
 
     def create
       @cash_game.cash_queues.create(user_params)
-      render :index
+      # render :index
+      redirect_to admin_cash_game_cash_queues_path(@cash_game)
     end
 
     def update
@@ -42,7 +44,21 @@ ActiveAdmin.register CashQueue do
 
     def user_params
       params.require(:cash_queue)
-            .permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :high_limit, :notice, :navigation)
+            .permit(:small_blind, :big_blind, :members, :buy_in, :table_no, :table_people, :high_limit, :currency, :transfer, :notice, :navigation, :straddle, :position, :queue_type)
     end
+  end
+
+  member_action :reposition, method: :post do
+    item = CashQueue.find(params[:id])
+    next_item = params[:next_id] && CashQueue.find(params[:next_id].split('_').last)
+    prev_item = params[:prev_id] && CashQueue.find(params[:prev_id].split('_').last)
+    position = if params[:prev_id].blank?
+                 next_item.position + 100000
+               elsif params[:next_id].blank?
+                 prev_item.position / 2
+               else
+                 (prev_item.position + next_item.position) / 2
+               end
+    item.update(position: position)
   end
 end

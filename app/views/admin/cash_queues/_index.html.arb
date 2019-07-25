@@ -2,14 +2,17 @@ context.instance_eval do
   column(:id)
   column(:cash_game, sortable: false)
   column(:navigation, sortable: false) { |r| image_tag(r.navigation_url.to_s, height: 150) }
+  column(:currency)
   column(:small_blind)
   column(:big_blind)
+  column(:straddle)
   column(:table_nums, sortable: false) do |cash_queue|
     cash_queue.table_nums
   end
   column(:table_no, sortable: false)
   column(:buy_in, sortable: false)
   column(:high_limit, sortable: false)
+  column(:transfer, sortable: false)
   column(:cash_queue_members_count) do |cash_queue|
     link_to cash_queue.cash_queue_members_count, admin_cash_queue_cash_queue_members_url(cash_queue), style: 'color: blue;'
   end

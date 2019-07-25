@@ -32,6 +32,7 @@
       user: '用户管理'
       platform_question: '常见问题'
       dashboard: '控制面板'
+      info_tag: '资讯标签'
     attributes:
       admin_user:
         email: "邮箱"
@@ -73,20 +74,28 @@
         created_at: "创建时间"
         updated_at: "更新时间"
         hot: '是否热门'
+        info_tags: '标签'
+      info_tag:
+        name: '标签名'
+        name_en: '标签英文名'
       cash_game:
         name: '名称'
         image: '中文图片'
         image_en: '英文图片'
         image_complex: '繁体图片'
+        table_type: '桌子类型'
       cash_queue:
         cash_game: '现金桌'
         small_blind: '小盲注'
         big_blind: '大盲注'
+        straddle: '大盲前注'
         table_nums: '桌数'
         cash_queue_members_count: '排队的人数'
         table_no: '桌子编号'
         buy_in: '买入'
         high_limit: 'high limit'
+        transfer: 'transfer request'
+        currency: '货币类型'
         table_people: '桌面人数'
         navigation: '盲注图片'
         created_at: '创建时间'
