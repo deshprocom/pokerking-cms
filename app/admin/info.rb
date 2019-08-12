@@ -80,6 +80,12 @@ ActiveAdmin.register Info do
     redirect_back fallback_location: admin_infos_url, notice: 'Cancel Success'
   end
 
+  # 下发消息
+  member_action :notify, method: :post do
+    Notification.create_info_notify(resource)
+    redirect_back fallback_location: admin_infos_url, notice: 'send Success'
+  end
+
   member_action :reposition, method: :post do
     item = Info.find(params[:id])
     next_item = params[:next_id] && Info.find(params[:next_id].split('_').last)
