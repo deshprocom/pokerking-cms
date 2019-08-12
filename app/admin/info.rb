@@ -4,7 +4,7 @@ ActiveAdmin.register Info do
   belongs_to :main_event, optional: true
 
   permit_params :title, :image, :description, :source, :published,
-                :created_at, :main_event_id, :only_show_in_event, :hot
+                :created_at, :main_event_id, :only_show_in_event, :hot, :location
 
   scope :all
   scope :hot, &:hot
@@ -36,7 +36,7 @@ ActiveAdmin.register Info do
     end
 
     def update
-      resource.assign_attributes(create_params)
+      resource.update(create_params)
       # 取出之前的所有标签
       old_relations = @info.reload.info_tag_relations
       old_relations.each(&:destroy)
@@ -63,7 +63,8 @@ ActiveAdmin.register Info do
                                    :created_at,
                                    :main_event_id,
                                    :only_show_in_event,
-                                   :hot)
+                                   :hot,
+                                   :location)
     end
   end
 

@@ -3,6 +3,7 @@
   = f.inputs do
     = f.input :main_event
     = f.input :title
+    = f.input :location
     = f.input :source
     = f.input :image, as: :attachment, required: true,
                       hint: I18n.t('notices.max_image_size') + '2MB, Size: 244 X 148px',

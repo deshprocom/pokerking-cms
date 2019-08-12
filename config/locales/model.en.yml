@@ -52,6 +52,7 @@
         event_state: "Event Status"
         published: "Release"
         description: "Description"
+        live_url: 'Live Url'
       event_schedule:
         name: "Event Name"
         event_type: "Type"
@@ -75,6 +76,7 @@
         updated_at: "Update Time"
         hot: 'Hot'
         info_tags: 'Info Tags'
+        Location: 'Location'
       info_tag:
         name: 'Name'
         name_en: 'Name En'

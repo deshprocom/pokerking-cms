@@ -52,6 +52,7 @@
         event_state: "赛事状态"
         published: "是否发布"
         description: "详情描述"
+        live_url: '直播地址'
       event_schedule:
         name: "名称"
         event_type: "类型"
@@ -75,6 +76,7 @@
         updated_at: "更新时间"
         hot: '是否热门'
         info_tags: '标签'
+        location: '举办地点'
       info_tag:
         name: '标签名'
         name_en: '标签英文名'
