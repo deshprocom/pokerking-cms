@@ -53,6 +53,7 @@
         published: "Release"
         description: "Description"
         live_url: 'Live Url'
+        Location: 'Location'
       event_schedule:
         name: "Event Name"
         event_type: "Type"
