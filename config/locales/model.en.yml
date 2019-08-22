@@ -33,6 +33,7 @@
       platform_question: 'Platform Question'
       dashboard: 'dashboard'
       info_tag : 'Info Tags'
+      app_version: "App Version"
     attributes:
       admin_user:
         email: "E-mail Address"
@@ -126,6 +127,13 @@
         last_sign_in_ip: 'IP Address'
         avatar: 'Profile Photo'
         preview: 'Preview'
+      app_version:
+        version: "Version No"
+        platform: "App Platfrom"
+        force_upgrade: "Force Upgrade"
+        content: "Upgrade Content"
+        title: "Upgrade Title"
+        download_url: "DownLoad"
       platform_question:
         description: 'Question List'
       admin_role:
