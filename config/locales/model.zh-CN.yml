@@ -33,6 +33,7 @@
       platform_question: '常见问题'
       dashboard: '控制面板'
       info_tag: '资讯标签'
+      app_version: "app版本管理"
     attributes:
       admin_user:
         email: "邮箱"
@@ -52,6 +53,8 @@
         event_state: "赛事状态"
         published: "是否发布"
         description: "详情描述"
+        live_url: '直播地址'
+        location: '举办地点'
       event_schedule:
         name: "名称"
         event_type: "类型"
@@ -75,6 +78,7 @@
         updated_at: "更新时间"
         hot: '是否热门'
         info_tags: '标签'
+        location: '举办地点'
       info_tag:
         name: '标签名'
         name_en: '标签英文名'
@@ -123,6 +127,13 @@
         last_sign_in_ip: '登录IP'
         avatar: '头像'
         preview: '预览'
+      app_version:
+        version: "版本号"
+        platform: "app平台"
+        force_upgrade: "强制升级"
+        content: "更新内容"
+        title: "更新标题"
+        download_url: "下载链接"
       platform_question:
         description: '问题列表'
       admin_role:

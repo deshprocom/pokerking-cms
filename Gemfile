@@ -49,6 +49,7 @@ gem 'simditor'
 
 gem 'best_in_place'
 gem 'action-store'
+gem 'jpush'
 
 # 文件上传处理 相关
 gem 'carrierwave', '~> 1.0'
@@ -57,6 +58,10 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 
 # 拖拽排序
 gem 'acts_as_list'
+
+# 图标相关
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

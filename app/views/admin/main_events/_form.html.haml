@@ -6,6 +6,8 @@
                      hint: I18n.t('notices.max_image_size') + ' 2MB, Size 576 X 288px',
                      image: proc { |o| o.logo_url.to_s }
 
+    = f.input :live_url
+    = f.input :location
     = f.input :begin_time
     = f.input :end_time
     = f.input :published

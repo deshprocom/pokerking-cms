@@ -2,32 +2,25 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
-  content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+  content title: I18n.t('active_admin.dashboard') do
+    h3 '以下图表数据每10分钟更新一次', style: 'text-align: center; padding: 20px'
+
+    columns do
+      column do
+        panel '最近两周新增app用户数' do
+          ul do
+            line_chart recent_users_line_data
+          end
+        end
+      end
+
+      column do
+        panel '最近八周新增app用户数' do
+          ul do
+            column_chart recent_weeks_users_column_data
+          end
+        end
       end
     end
-
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
   end # content
 end
