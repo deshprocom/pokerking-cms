@@ -34,6 +34,7 @@
       dashboard: '控制面板'
       info_tag: '资讯标签'
       app_version: "app版本管理"
+      feedback: '意见反馈'
     attributes:
       admin_user:
         email: "邮箱"
@@ -82,6 +83,12 @@
       info_tag:
         name: '标签名'
         name_en: '标签英文名'
+      feedback:
+        nickname: '昵称'
+        content: '反馈内容'
+        email: '邮箱'
+        dealt: '已处理'
+        created_at: '创建时间'
       cash_game:
         name: '名称'
         image: '中文图片'
