@@ -34,6 +34,7 @@
       dashboard: 'dashboard'
       info_tag : 'Info Tags'
       app_version: "App Version"
+      feedback: 'Feedback'
     attributes:
       admin_user:
         email: "E-mail Address"
@@ -88,6 +89,12 @@
         image_en: 'English Picture'
         image_complex: 'Fanti Picture'
         table_type: 'Table Type'
+      feedback:
+        nickname: 'Nickname'
+        content: 'Content'
+        email: 'Email'
+        dealt: 'Dealt'
+        created_at: 'Create Time'
       cash_queue:
         cash_game: 'Room'
         small_blind: 'Blind Picture'
