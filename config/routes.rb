@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
   end
 
-  root 'admin/admin_users#index'
+  root 'admin/users#index'
   resources :admin_images, only: [:create]
 end
