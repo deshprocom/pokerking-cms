@@ -3,6 +3,7 @@ ActiveAdmin.register Feedback do
   config.filters = false
   config.clear_action_items!
   config.sort_order = 'dealt_asc'
+  actions :all, except: [:new, :edit]
 
   index do
     column :id

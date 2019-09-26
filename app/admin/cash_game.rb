@@ -1,5 +1,5 @@
 ActiveAdmin.register CashGame do
-  permit_params :name, :image, :image_en, :image_complex, :notice, :table_type
+  permit_params :name, :image, :image_en, :image_complex, :notice, :table_type, :amap_poiid, :amap_location
   filter :name
   filter :created_at
   config.sort_order = 'position_desc'
@@ -30,5 +30,13 @@ ActiveAdmin.register CashGame do
                  (prev_cash_game.position + next_cash_game.position) / 2
                end
     cash_game.update(position: position)
+  end
+
+  collection_action :amap_detail, method: :get do
+    response = Faraday.get('https://restapi.amap.com/v3/place/detail',
+                           key: ENV['AMAP_KEY'],
+                           id: params[:poiid])
+    pois = JSON.parse(response.body)['pois']
+    @poi = pois.presence ? pois[0] : {}
   end
 end
