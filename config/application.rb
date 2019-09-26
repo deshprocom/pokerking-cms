@@ -13,7 +13,7 @@ module PokerkingCms
 
     config.i18n.default_locale = 'zh-CN'
     config.time_zone = 'Beijing'
-    config.active_record.default_timezone = :local
+    # config.active_record.default_timezone = :local
     config.action_controller.asset_host = ENV['ASSET_HOST']
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

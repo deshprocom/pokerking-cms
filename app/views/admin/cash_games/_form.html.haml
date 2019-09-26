@@ -12,6 +12,17 @@
                    hint: I18n.t('notices.max_image_size') + ' 2MB',
                    image: proc { |o| o.image_complex_url.to_s }
     = f.input :table_type, collection: AdminTrans::TABLE_TYPE, prompt: true
+    = f.input :amap_poiid, hint: content_tag('a', '获取地点详情', class: 'get_amap_detail', style: 'cursor:pointer')
+    = f.input :amap_location
     = f.input :notice, hint: I18n.t('notices.length_max_size') + ' 64 bytes'
 
   = f.submit data: { disable_with: 'Waiting...' }
+
+:javascript
+  $(function() {
+    $('.get_amap_detail').click(function(){
+      let poiid = $('#cash_game_amap_poiid').val()
+      $.ajax({ url: '/zh-CN/admin/cash_games/amap_detail?poiid=' + poiid })
+      console.log(poiid)
+    })
+  });
