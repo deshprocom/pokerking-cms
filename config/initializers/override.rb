@@ -1,6 +1,6 @@
 ActiveAdmin::Devise::SessionsController.class_eval do
   def after_sign_in_path_for(resource)
-    admin_dashboard_path
+    admin_users_path
   end
 
   def root_path
