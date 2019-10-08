@@ -4,6 +4,8 @@ context.instance_eval do
     row(:logo) { |event| image_tag(event.logo_url.to_s, height: 300) }
     row(:live_url)
     row(:location)
+    row(:amap_poiid)
+    row(:amap_location)
     row(:begin_time)
     row(:end_time)
     row(:event_state)
