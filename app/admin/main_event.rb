@@ -1,5 +1,5 @@
 ActiveAdmin.register MainEvent do
-  permit_params :name, :logo, :begin_time, :end_time, :published, :description, :live_url, :location
+  permit_params :name, :logo, :begin_time, :end_time, :published, :description, :live_url, :location, :amap_poiid, :amap_location
   form partial: 'form'
   config.sort_order = 'position_desc'
 
@@ -27,5 +27,13 @@ ActiveAdmin.register MainEvent do
                  (prev_cash_game.position + next_cash_game.position) / 2
                end
     cash_game.update(position: position)
+  end
+
+  collection_action :amap_detail, method: :get do
+    response = Faraday.get('https://restapi.amap.com/v3/place/detail',
+                           key: ENV['AMAP_KEY'],
+                           id: params[:poiid])
+    pois = JSON.parse(response.body)['pois']
+    @poi = pois.presence ? pois[0] : {}
   end
 end

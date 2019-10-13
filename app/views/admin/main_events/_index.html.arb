@@ -4,6 +4,7 @@ context.instance_eval do
   column(:logo, sortable: false) { |event| img_link_to_show(event, event.logo_url) }
   column(:live_url, sortable: false)
   column(:location, sortable: false)
+  column(:amap_poiid, sortable: false)
   column(:begin_time)
   column(:end_time)
   column(:published, sortable: false)

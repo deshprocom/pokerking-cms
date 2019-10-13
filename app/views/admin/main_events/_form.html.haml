@@ -8,6 +8,8 @@
 
     = f.input :live_url
     = f.input :location
+    = f.input :amap_poiid, hint: content_tag('a', '获取地点详情', class: 'get_amap_detail', style: 'cursor:pointer')
+    = f.input :amap_location
     = f.input :begin_time
     = f.input :end_time
     = f.input :published
@@ -17,6 +19,12 @@
 :javascript
     $(function() {
         PkEditor.call($("#main_event_description"), $('form.main_event'));
+
+        $('.get_amap_detail').click(function(){
+          let poiid = $('#main_event_amap_poiid').val()
+          $.ajax({ url: '/zh-CN/admin/main_events/amap_detail?poiid=' + poiid })
+          console.log(poiid)
+        })
     });
 
 
