@@ -1,5 +1,6 @@
 context.instance_eval do
   selectable_column
+  column(:id)
   queue_members = cash_queue.cash_queue_members.position_asc
   column(:qid, sortable: 'position') do |resource|
     index = 0

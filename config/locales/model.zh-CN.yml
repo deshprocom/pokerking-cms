@@ -112,7 +112,8 @@
         created_at: '创建时间'
         updated_at: '更新时间'
       cash_queue_member:
-        qid: '排队编号'
+        id: '位置'
+        qid: '排队队列'
         nickname: '昵称'
         memo: '备注'
         canceled: '是否取消'

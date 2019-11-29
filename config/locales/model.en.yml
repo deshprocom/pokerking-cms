@@ -112,6 +112,7 @@
         created_at: 'Create Time'
         updated_at: 'Update Time'
       cash_queue_member:
+        id: 'Position'
         qid: 'Queue'
         nickname: 'Name'
         memo: 'Remark'
