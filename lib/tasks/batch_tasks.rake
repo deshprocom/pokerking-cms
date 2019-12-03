@@ -1,6 +1,8 @@
 namespace :batch_tasks do
-  desc '每隔10分钟 同步一次用户的ip位置'
+  desc '每分钟 同步一次用户的ip位置'
   task sync_last_sign_in: :environment do
+    # 开通了权限才做检查呀！
+    return unless ENV['SEARCH_LOCATION'].present?
     Rails.application.eager_load!
     puts 'sync_last_sign_in start'
     users = User.where('last_sign_in_ip != ?', '') # 需要翻译的用户
@@ -12,12 +14,13 @@ namespace :batch_tasks do
       else
         begin
           result = IpLocation.query(ip)
-          location = "#{result['country_name']} | #{result['city']} | #{result['region_name']} | #{result['company']}"
+          location = "#{result['country_name']} | #{result['region_name']} | #{result['city']} | #{result['company']}"
         rescue
           location = ''
         end
       end
       user.update(last_sign_in_locations: location)
+      sleep(1) # 睡眠1s
     end
     puts 'sync_last_sign_in end'
   end
