@@ -20,7 +20,7 @@ namespace :batch_tasks do
         end
       end
       user.update(last_sign_in_locations: location)
-      sleep(1) # 睡眠1s
+      sleep(rand(10)) # 睡眠
     end
     puts 'sync_last_sign_in end'
   end
