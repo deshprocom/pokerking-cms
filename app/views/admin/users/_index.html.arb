@@ -12,7 +12,14 @@ context.instance_eval do
   column :last_visit
   column :login_count
   column :login_days
-  column :last_sign_in_ip, sortable: false
+  column :last_sign_in_ip, sortable: false do |user|
+    if user.last_sign_in_ip.eql? '127.0.0.1'
+      "本机"
+    else
+      arr = user.last_sign_in_locations.split('|')
+      arr.present? ? "#{arr[0]} #{arr[1]} #{arr[2]}" : user.last_sign_in_ip
+    end
+  end
   if current_admin_user.has_super_permission?
     column(:preview, sortable: false) do |user|
       if user.preview?

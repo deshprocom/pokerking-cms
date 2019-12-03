@@ -63,6 +63,8 @@ gem 'acts_as_list'
 gem 'chartkick'
 gem 'groupdate'
 
+gem 'whenever', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -81,6 +83,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
   gem 'capistrano-git-with-submodules', '~> 2.0'
+  gem 'awesome_print'
 end
 
 group :test do
