@@ -17,7 +17,7 @@ namespace :batch_tasks do
           location = ''
         end
       end
-      user.update(last_sign_in_location: location)
+      user.update(last_sign_in_locations: location)
     end
     puts 'sync_last_sign_in end'
   end
