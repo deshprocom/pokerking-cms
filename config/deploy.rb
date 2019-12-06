@@ -7,7 +7,7 @@ set :deploy_to, '/home/deploy/deploy/pokerking_cms'
 set :rvm_ruby_version, 'ruby-2.5.0'
 # 可使用 gem 'capistrano/nvm' 代替 设置node的env
 set :default_env, { path: '$PATH:/home/deploy/.nvm/v8.5.0/bin' }
-# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 append :linked_files, '.env', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
