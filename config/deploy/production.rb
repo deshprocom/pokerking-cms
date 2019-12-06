@@ -2,6 +2,7 @@ server '103.16.217.233', user: 'deploy', roles: %w{app db cache web}
 set :ssh_options, {
   user: 'deploy', # overrides user setting above
   keys: %w(~/.ssh/id_rsa),
+  port: 22555,
   forward_agent: false,
   auth_methods: %w(publickey password)
 }
