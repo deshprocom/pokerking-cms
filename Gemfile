@@ -55,7 +55,7 @@ gem 'jpush'
 # 文件上传处理 相关
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-upyun'
-gem 'mini_magick', '~> 4.9', '>= 4.9.2'
+gem 'mini_magick', '~> 4.9'
 
 # 拖拽排序
 gem 'acts_as_list'
