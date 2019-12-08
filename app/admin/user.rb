@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   menu priority: 1
 
-  actions :all, except: [:destroy, :edit]
+  actions :all, except: [:destroy, :edit, :new]
 
   filter :user_uuid
   filter :nickname
