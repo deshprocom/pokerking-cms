@@ -66,7 +66,7 @@ gem 'groupdate'
 
 gem 'whenever', require: false
 
-gem 'public_activity'
+# gem 'public_activity'
 gem 'paper_trail'
 
 group :development, :test do
