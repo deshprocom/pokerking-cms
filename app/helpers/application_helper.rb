@@ -37,7 +37,9 @@ module ApplicationHelper
     content = radio_button_tag(:common_lang, 'cn', true) <<
         content_tag(:span, ' 中文 &nbsp&nbsp&nbsp'.html_safe) << # rubocop:disable Rails/OutputSafety
         radio_button_tag(:common_lang, 'en') <<
-        content_tag(:span, ' 英文')
+        content_tag(:span, ' 英文 &nbsp&nbsp&nbsp'.html_safe) << # rubocop:disable Rails/OutputSafety
+        radio_button_tag(:common_lang, 'tc') <<
+        content_tag(:span, ' 繁体')
     content_tag(:li, content, class: 'common_radio_lang')
   end
 end

@@ -158,7 +158,13 @@ class EmbeddedStringInput < Formtastic::Inputs::StringInput
       options[:embedded_html].call
     elsif options[:embedded_html] == :with_en
       default_en_html
+    elsif options[:embedded_html] == :mutil_lang
+      default_en_html << default_tc_html
     end
+  end
+
+  def object_param_key
+    template.model_name_from_record_or_class(object).param_key
   end
 
   def default_en_html
@@ -166,11 +172,16 @@ class EmbeddedStringInput < Formtastic::Inputs::StringInput
     template.text_field(object_name, method, object: object.send(default_object_en))
   end
 
-  def object_param_key
-    template.model_name_from_record_or_class(object).param_key
+  def default_tc_html
+    object_name = "#{object_param_key}[#{default_object_tc}_attributes]"
+    template.text_field(object_name, method, object: object.send(default_object_tc))
   end
 
   def default_object_en
     "#{object_param_key}_en"
+  end
+
+  def default_object_tc
+    "#{object_param_key}_tc"
   end
 end
