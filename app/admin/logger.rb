@@ -16,7 +16,13 @@ ActiveAdmin.register_page "Logger" do
             column(:type) { |v| v.item_type.underscore.humanize }
             column(:event)
             column(:modified_at) { |v| v.created_at.to_s :long }
-            column(:admin) { |v| link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)] }
+            column(:admin) do |v|
+              if v.whodunnit.blank?
+                ''
+              else
+                link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)]
+              end
+            end
           end
         end
       end
