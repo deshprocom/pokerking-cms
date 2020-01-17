@@ -11,6 +11,7 @@
     length_max_size: '长度限制'
     click_me: '点我添加'
     show_queue: '查看排队情况'
+    confirm: '审核通过'
   buttons:
     delete: '删除'
     update: '修改'

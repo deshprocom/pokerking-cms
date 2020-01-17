@@ -14,7 +14,10 @@ context.instance_eval do
   column(:high_limit, sortable: false)
   column(:transfer, sortable: false)
   column(:cash_queue_members_count) do |cash_queue|
-    link_to cash_queue.cash_queue_members_count, admin_cash_queue_cash_queue_members_url(cash_queue), style: 'color: blue;'
+    link_to cash_queue.cash_queue_members.confirmed_numbers.count, admin_cash_queue_cash_queue_members_url(cash_queue) + '?scope=confirmed', style: 'color: blue;'
+  end
+  column(:cash_queue_members_count) do |cash_queue|
+    link_to cash_queue.cash_queue_members.unconfirmed_numbers.count, admin_cash_queue_cash_queue_members_url(cash_queue) + '?scope=unconfirmed', style: 'color: blue;'
   end
   column :notice, sortable: false
   actions
