@@ -13,6 +13,7 @@ context.instance_eval do
   column(:memo, sortable: false) do |r|
     best_in_place r, :memo, as: 'input', place_holder: I18n.t('notices.click_me'), url: admin_cash_queue_cash_queue_member_path(r.cash_queue, r)
   end
+  column(:confirmed)
   column(:created_at)
   column(:updated_at)
   actions defaults: false do |member|
@@ -27,6 +28,7 @@ context.instance_eval do
            remote: true
     else
       item I18n.t('notices.confirm'), confirmed_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
+           data: {confirm: 'Are you sure？'},
            method: :post
     end
   end

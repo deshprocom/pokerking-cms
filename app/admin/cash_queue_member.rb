@@ -88,6 +88,8 @@ ActiveAdmin.register CashQueueMember do
   member_action :confirmed, method: [:post] do
     cash_queue_member = CashQueueMember.find(params[:id])
     cash_queue_member.update(confirmed: true)
+    # 下发app通知消息
+    Notification.create_queue_notify(cash_queue_member&.user, cash_queue_member.cash_queue)
     redirect_to request.referrer
   end
 
