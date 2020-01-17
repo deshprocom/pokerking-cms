@@ -8,6 +8,14 @@ ActiveAdmin.register CashQueueMember do
 
   filter :nickname
 
+  scope :all
+  scope('confirmed') do |scope|
+    scope.where(confirmed: true)
+  end
+  scope('unconfirmed') do |scope|
+    scope.where(confirmed: false)
+  end
+
   index do
     render 'index', context: self
   end
@@ -17,6 +25,9 @@ ActiveAdmin.register CashQueueMember do
   end
 
   controller do
+    # def scoped_collection
+    #   super.where(confirmed: true)
+    # end
     def index
       cash_queue = CashQueue.find(params[:cash_queue_id])
       if !cash_queue.high_limit && !cash_queue.transfer
@@ -70,6 +81,13 @@ ActiveAdmin.register CashQueueMember do
   # 批量删除操作
   batch_action :destroy, confirm: 'Are you sure?' do |ids|
     CashQueueMember.find(ids).each(&:destroy)
+    redirect_to request.referrer
+  end
+
+  # 通过用户的报名请求
+  member_action :confirmed, method: [:post] do
+    cash_queue_member = CashQueueMember.find(params[:id])
+    cash_queue_member.update(confirmed: true)
     redirect_to request.referrer
   end
 
