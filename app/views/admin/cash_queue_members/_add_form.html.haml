@@ -2,7 +2,7 @@
   = form_tag add_admin_cash_queue_cash_queue_members_path(@cash_queue) do
     %div{style: 'margin-bottom: 15px; color: gray'} Current Blind：#{@cash_queue.small_blind} / #{@cash_queue.big_blind}
     = label_tag 'Name：'
-    = text_field_tag 'nickname', '', autofocus: true
+    = text_field_tag 'nickname'
     %div{style: 'margin-top: 10px; margin-bottom: 10px'}
       = label_tag 'Remark：'
       = text_field_tag 'memo'
