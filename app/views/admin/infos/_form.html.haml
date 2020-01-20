@@ -1,10 +1,12 @@
+- @info.info_en   || @info.build_info_en
+- @info.info_tc   || @info.build_info_tc
 = semantic_form_for [:admin, @info] do |f|
   = f.semantic_errors *f.object.errors.keys
   = f.inputs do
     = f.input :main_event
-    = f.input :title
+    = f.input :title, as: :embedded_string, embedded_html: :mutil_lang
     -#= f.input :location
-    = f.input :source
+    = f.input :source, as: :embedded_string, embedded_html: :mutil_lang
     = f.input :image, as: :attachment, required: true,
                       hint: I18n.t('notices.max_image_size') + '2MB, Size: 244 X 148px',
                       image: proc { |o| o.image_url.to_s }
@@ -21,12 +23,23 @@
     = f.input :published
     = f.input :hot
     = f.input :created_at
-    ~ f.input :description
+    = multilingual_editor_switch
+    %li#markdown_cn
+      ~ f.text_area :description
+    %li#markdown_en
+      = f.semantic_fields_for :info_en do |en|
+        ~ en.text_area :description
+    %li#markdown_tc
+      = f.semantic_fields_for :info_tc do |en|
+        ~ en.text_area :description
+    -#~ f.input :description
   = f.submit data: { disable_with: 'Waiting...' }
 
 :javascript
     $(function() {
         PkEditor.call($("#info_description"), $('form.info'));
+        PkEditor.call($("#info_info_en_attributes_description"), $('form.info'));
+        PkEditor.call($("#info_info_tc_attributes_description"), $('form.info'));
     });
 
 

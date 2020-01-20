@@ -4,7 +4,7 @@ context.instance_eval do
   queue_members = cash_queue.cash_queue_members.position_asc
   column(:qid, sortable: 'position') do |resource|
     index = 0
-    queue_members.each_with_index do |v, k|
+    queue_members.where(confirmed: true).each_with_index do |v, k|
       break index = k if v.eql?(resource)
     end
     "No.#{index + 1}"
@@ -13,6 +13,7 @@ context.instance_eval do
   column(:memo, sortable: false) do |r|
     best_in_place r, :memo, as: 'input', place_holder: I18n.t('notices.click_me'), url: admin_cash_queue_cash_queue_member_path(r.cash_queue, r)
   end
+  column(:confirmed)
   column(:created_at)
   column(:updated_at)
   actions defaults: false do |member|
@@ -21,8 +22,14 @@ context.instance_eval do
          data: {confirm: 'Are you sure？'},
          class: 'member_link'
     item I18n.t('buttons.update'), edit_info_admin_cash_queue_cash_queue_member_path(member.cash_queue, member), method: :get, class: 'member_link', remote: true
-    item I18n.t('notices.show_queue'), member_queue_status_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
-         method: :post,
-         remote: true
+    if member.confirmed?
+      item I18n.t('notices.show_queue'), member_queue_status_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
+           method: :post,
+           remote: true
+    else
+      item I18n.t('notices.confirm'), confirmed_admin_cash_queue_cash_queue_member_path(member.cash_queue, member),
+           data: {confirm: 'Are you sure？'},
+           method: :post
+    end
   end
 end
